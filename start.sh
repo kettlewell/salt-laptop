@@ -27,7 +27,7 @@ mkdir -p /srv/local/{salt,top}
 cat << EOF > /srv/local/salt/entrypoint.sls
 sync_states:
   git.latest:
-    - name: https://github.com/eitrtechnologies/salt-masterless-example.git
+    - name: https://github.com/kettlewell/salt-laptop.git
     - target: /srv/remote
     - force_checkout: True
     - force_clone: True
