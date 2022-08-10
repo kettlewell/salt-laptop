@@ -7,21 +7,15 @@ system_packages:
       - curl
       - wget
       - git
-      - yq
       - zip
-      - ykls
-      - xz-utils
-      - wpasupplicant
       - wireshark
       - whois
-      - uuid-runtime
       - tig
       - tmux
       - traceroute
       - mtr
       - tree
       - sysfsutils
-      - sqlite3
       - strace
       - socat
       - rsync
@@ -30,5 +24,13 @@ system_packages:
       - pigz
       - pinentry-curses
       - packer
-      - google-chrome-stable
-      
+
+
+#      - yq
+#      - wpasupplicant
+#      - google-chrome-stable
+#      - ykls
+#      - xz-utils
+#      - sqlite3
+#      - uuid-runtime
+
