@@ -1,3 +1,6 @@
+include:
+  - epel-release
+
 system_packages:
   pkg.installed:
     - pkgs:
