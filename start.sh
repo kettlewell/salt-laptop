@@ -56,18 +56,18 @@ fi
 
 
 
-mkdir -p /srv/formulas
+#mkdir -p /srv/formulas
 
-cd /srv/formulas
+#cd /srv/formulas
 
 
-for formula in ${FORMULAS[@]}; do
-    if [[ ! -d "/srv/salt-laptop" ]]; then
-	git -C /srv/formulas clone  https://github.com/kettlewell/${formula}.git
-    else
-	git -C /srv/formulas/${formula} pull
-    fi
-done
+#for formula in ${FORMULAS[@]}; do
+#    if [[ ! -d "/srv/salt-laptop" ]]; then
+#	git -C /srv/formulas clone  https://github.com/kettlewell/${formula}.git
+#    else
+#	git -C /srv/formulas/${formula} pull
+#    fi
+#done
 
 
 
