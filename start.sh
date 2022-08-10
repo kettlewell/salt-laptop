@@ -33,6 +33,7 @@ curl -L https://bootstrap.saltproject.io | sudo sh -s -- -x python3 \
 	 "return": "rawfile_json", \
 	 "top_file_merging_strategy": "merge_all", \
 	 "file_client": "local"}' \
+    -P \
     git v3005rc2
 
 systemctl stop salt-minion
