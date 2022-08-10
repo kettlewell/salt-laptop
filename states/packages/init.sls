@@ -1,5 +1,5 @@
 include:
-  - epel-release
+  - packages.epel-release
 
 system_packages:
   pkg.installed:
