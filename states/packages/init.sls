@@ -23,9 +23,8 @@ system_packages:
       - procps
       - pigz
       - pinentry-curses
-      - packer
 
-
+#      - packer
 #      - yq
 #      - wpasupplicant
 #      - google-chrome-stable
