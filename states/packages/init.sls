@@ -5,9 +5,8 @@ system_packages:
   pkg.installed:
     - refresh: True
     - pkgs:
-      - code: '1.70.1-1660113182.el7'
+      - code: '1.70*'
       - curl
-      - dnf-utils
       - git
       - mtr
       - pigz
