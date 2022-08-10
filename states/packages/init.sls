@@ -4,27 +4,28 @@ include:
 system_packages:
   pkg.installed:
     - pkgs:
+      - code:1.70.1
       - curl
-      - wget
+      - dnf-utils
       - git
-      - zip
-      - wireshark
-      - whois
+      - mtr
+      - pigz
+      - pinentry
+      - pinentry-tty
+      - postgresql
+      - procps-ng
+      - rsync
+      - socat
+      - strace
+      - sysfsutils
       - tig
       - tmux
       - traceroute
-      - mtr
       - tree
-      - sysfsutils
-      - strace
-      - socat
-      - rsync
-      - postgresql
-      - procps-ng
-      - pigz
-      - pinentry-tty
-      - pinentry
-      - code
+      - wget
+      - whois
+      - wireshark
+      - zip
 
 #      - packer
 #      - yq
