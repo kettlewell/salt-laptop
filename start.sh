@@ -10,7 +10,11 @@ mkdir -p /srv
 
 cd /srv
 
-git clone -f https://github.com/kettlewell/salt-laptop.git
+if [[ ! -d "/srv/salt-laptop" ]]; then
+    git clone -f https://github.com/kettlewell/salt-laptop.git
+else
+    git -C /srv/salt-laptop pull
+fi
 
 
 curl -L https://bootstrap.saltproject.io | sudo sh -s -- -x python3 \
