@@ -20,9 +20,10 @@ system_packages:
       - socat
       - rsync
       - postgresql
-      - procps
+      - procps-ng
       - pigz
-      - pinentry-curses
+      - pinentry-tty
+      - pinentry
 
 #      - packer
 #      - yq
