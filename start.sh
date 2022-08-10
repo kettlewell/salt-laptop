@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#set -x
+set -x
 
 # started from:
 # https://eitr.tech/blog/2021/11/12/salt-masterless.html
