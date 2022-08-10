@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
+#set -x
+
 # started from:
 # https://eitr.tech/blog/2021/11/12/salt-masterless.html
 
-#rpm --import https://repo.saltproject.io/py3/redhat/8/x86_64/latest/SALTSTACK-GPG-KEY.pub
-#curl -fsSL https://repo.saltproject.io/py3/redhat/8/x86_64/latest.repo | sudo tee /etc/yum.repos.d/salt.repo
-
+SALT_GIT_TAG="v3005rc2"
+EXPECTED_SALT_VERSION="salt 3005rc2"
 mkdir -p /srv
 
 cd /srv
@@ -17,26 +18,39 @@ else
 fi
 
 
-curl -L https://bootstrap.saltproject.io | sudo sh -s -- -x python3 \
-    -j '{"master_type": "disable", \
-       	 "file_roots": \
+which salt > /dev/null 2>&1
+SALT_INSTALLED=$?
+if [[ ${SALT_INSTALLED} -eq 0 ]]; then
+    SALT_VERSION=$(salt --version)
+    if [[ "${SALT_VERSION}" != "${EXPECTED_SALT_VERSION}" ]]; then
+	printf "VERSIONS DONT MATCH... BOOTSTRAPPING SALT\n\n"
+	curl -L https://bootstrap.saltproject.io | sudo sh -s -- -x python3 \
+	  -j '{"master_type": "disable", \
+       	  "file_roots": \
 	 	       { \
                         "base": ["/srv/salt-laptop/states"] \
                        }, \
-         "pillar_roots": \
+          "pillar_roots": \
 	 	       { \
                         "base": ["/srv/salt-laptop/pillars"] \
                        }, \
-         "startup_states": "highstate", \
-	 "pub_ret": false, \
-	 "mine_enabled": false, \
-	 "return": "rawfile_json", \
-	 "top_file_merging_strategy": "merge_all", \
-	 "file_client": "local"}' \
-    -P \
-    git v3005rc2
+          "startup_states": "highstate", \
+	  "pub_ret": false, \
+	  "mine_enabled": false, \
+	  "return": "rawfile_json", \
+	  "top_file_merging_strategy": "merge_all", \
+	  "file_client": "local"}' \
+          -P \
+          git ${SALT_GIT_TAG}
+	systemctl stop salt-minion
+    else
+	printf "VERSIONS MATCH - NOT BOOTSTRAPPING\n"
+    fi
+fi
 
-systemctl stop salt-minion
+
+
+
 
 
 
