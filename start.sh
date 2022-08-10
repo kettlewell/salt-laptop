@@ -7,12 +7,18 @@ set -x
 
 SALT_GIT_TAG="v3005rc2"
 EXPECTED_SALT_VERSION="salt 3005rc2"
+
+declare -a FORMULAS
+FORMULAS[0]="vscode-formula"
+
+
+
 mkdir -p /srv
 
 cd /srv
 
 if [[ ! -d "/srv/salt-laptop" ]]; then
-    git clone -f https://github.com/kettlewell/salt-laptop.git
+    git -C /srv clone https://github.com/kettlewell/salt-laptop.git
 else
     git -C /srv/salt-laptop pull
 fi
@@ -49,6 +55,19 @@ if [[ ${SALT_INSTALLED} -eq 0 ]]; then
 fi
 
 
+
+mkdir -p /srv/formulas
+
+cd /srv/formulas
+
+
+for formula in ${FORMULAS[@]}; do
+    if [[ ! -d "/srv/salt-laptop" ]]; then
+	git -C /srv/formulas clone  https://github.com/kettlewell/${formula}.git
+    else
+	git -C /srv/formulas/${formula} pull
+    fi
+done
 
 
 

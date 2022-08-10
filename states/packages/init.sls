@@ -1,5 +1,5 @@
 include:
-  - packages.epel-release
+  - packages.repos
 
 system_packages:
   pkg.installed:
@@ -24,6 +24,7 @@ system_packages:
       - pigz
       - pinentry-tty
       - pinentry
+      - code
 
 #      - packer
 #      - yq
