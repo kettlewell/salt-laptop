@@ -10,7 +10,7 @@ mkdir -p /srv
 
 cd /srv
 
-git clone https://github.com/kettlewell/salt-laptop.git
+git clone -f https://github.com/kettlewell/salt-laptop.git
 
 
 curl -L https://bootstrap.saltproject.io | sudo sh -s -- -x python3 \
