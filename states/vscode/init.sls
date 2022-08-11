@@ -1,5 +1,5 @@
 #!jinja|yaml
-{% set users = pillar['users'] %}
+{% set users = salt['pillar.get']('users', []) %}
 {% for my_user in users %}
 /home/{{ my_user }}/.config/Code
   file.directory:
