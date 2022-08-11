@@ -3,4 +3,4 @@ update_saltstack:
     - name: salt://salt/files/update_saltstack.sh
     - template: jinja
     - context:
-      salt_git_tag: {{ pillar['default']['salt_git_tag'] }}
+      salt_git_tag: {{ pillar['salt_git_tag'] }}
