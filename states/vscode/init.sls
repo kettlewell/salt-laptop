@@ -1,3 +1,4 @@
+#!jinja|yaml
 {% for user in salt['pillar.get']('users') %}
 /home/{{ user }}/.config/Code
   file.directory:
