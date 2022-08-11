@@ -8,8 +8,9 @@ SALT_INSTALLED=$?
 if [[ ${SALT_INSTALLED} -eq 0 ]]; then
     SALT_VERSION=$(salt --version)
     if [[ "${SALT_VERSION}" != "${EXPECTED_SALT_VERSION}" ]]; then
-	curl -s -L https://bootstrap.saltproject.io | sudo sh -s -- -x python3 \
-          -P \
+	curl -s -L https://bootstrap.saltproject.io | sudo sh -s -- \
+							   -P \
+							   -q \
           git ${SALT_GIT_TAG}
     fi
 fi
