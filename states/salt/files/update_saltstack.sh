@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 SALT_GIT_TAG={{ salt_git_tag }}
-EXPECTED_SALT_VERSION="salt ${SALT_GIT_TAG}"
+EXPECTED_SALT_VERSION={{ expected_salt_version }}
 echo "SALT_GIT_TAG: ${SALT_GIT_TAG}"
 echo "EXPECTED_SALT_VERSION: ${EXPECTED_SALT_VERSION}"
 
