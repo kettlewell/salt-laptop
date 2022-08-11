@@ -1,10 +1,9 @@
 #!jinja|yaml
-{% for user in pillar['users'] %}
-/home/{{ user }}/.config/Code
+{% for my_user in pillar['users'] %}
+/home/{{ my_user }}/.config/Code
   file.directory:
-    - user: {{ user }}
-    - group: {{ user }}
+    - user: {{ my_user }}
+    - group: {{ my_user }}
     - mode: 700
     - makedirs: True
-
 {% endfor %}
