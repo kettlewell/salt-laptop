@@ -1,3 +1,5 @@
 base:
   '*':
     - packages
+    - cron
+    

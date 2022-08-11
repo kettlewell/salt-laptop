@@ -6,7 +6,7 @@ set -x
 # https://eitr.tech/blog/2021/11/12/salt-masterless.html
 
 SALT_GIT_TAG="v3005rc2"
-EXPECTED_SALT_VERSION="salt 3005rc2"
+EXPECTED_SALT_VERSION="salt 3005rc2bogus"
 
 declare -a FORMULAS
 FORMULAS[0]="vscode-formula"
@@ -31,21 +31,6 @@ if [[ ${SALT_INSTALLED} -eq 0 ]]; then
     if [[ "${SALT_VERSION}" != "${EXPECTED_SALT_VERSION}" ]]; then
 	printf "VERSIONS DONT MATCH... BOOTSTRAPPING SALT\n\n"
 	curl -L https://bootstrap.saltproject.io | sudo sh -s -- -x python3 \
-	  -j '{"master_type": "disable", \
-       	  "file_roots": \
-	 	       { \
-                        "base": ["/srv/salt-laptop/states"] \
-                       }, \
-          "pillar_roots": \
-	 	       { \
-                        "base": ["/srv/salt-laptop/pillars"] \
-                       }, \
-          "startup_states": "highstate", \
-	  "pub_ret": false, \
-	  "mine_enabled": false, \
-	  "return": "rawfile_json", \
-	  "top_file_merging_strategy": "merge_all", \
-	  "file_client": "local"}' \
           -P \
           git ${SALT_GIT_TAG}
 	systemctl stop salt-minion
@@ -73,3 +58,18 @@ fi
 
 
 
+	  # -j '{"master_type": "disable", \
+       	  # "file_roots": \
+	  # 	       { \
+          #               "base": ["/srv/salt-laptop/states"] \
+          #              }, \
+          # "pillar_roots": \
+	  # 	       { \
+          #               "base": ["/srv/salt-laptop/pillars"] \
+          #              }, \
+          # "startup_states": "highstate", \
+	  # "pub_ret": false, \
+	  # "mine_enabled": false, \
+	  # "return": "rawfile_json", \
+	  # "top_file_merging_strategy": "merge_all", \
+	  # "file_client": "local"}' \
