@@ -8,7 +8,7 @@ if [[ ${SALT_INSTALLED} -eq 0 ]]; then
 	printf "VERSIONS DONT MATCH... BOOTSTRAPPING SALT\n\n"
 	curl -L https://bootstrap.saltproject.io | sudo sh -s -- -x python3 \
           -P \
-          git ${salt_git_tag}
+          git {{ salt_git_tag }}
 	systemctl stop salt-minion
     else
 	printf "VERSIONS MATCH - NOT BOOTSTRAPPING\n"
