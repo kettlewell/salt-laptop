@@ -2,4 +2,5 @@ base:
   '*':
     - packages
     - cron
+    - salt
     

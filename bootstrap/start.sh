@@ -6,7 +6,7 @@ set -x
 # https://eitr.tech/blog/2021/11/12/salt-masterless.html
 
 SALT_GIT_TAG="v3005rc2"
-EXPECTED_SALT_VERSION="salt 3005rc2bogus"
+EXPECTED_SALT_VERSION="salt 3005rc2"
 
 declare -a FORMULAS
 FORMULAS[0]="vscode-formula"
