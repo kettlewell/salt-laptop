@@ -1,4 +1,4 @@
-{% for user in salt['pillar.get']('users) %}
+{% for user in salt['pillar.get']('users') %}
 /home/{{ user }}/.config/Code
   file.directory:
     - user: {{ user }}
