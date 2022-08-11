@@ -1,5 +1,5 @@
 #!jinja|yaml
-{% for user in salt['pillar.get']('users') %}
+{% for user in pillar['users'] %}
 /home/{{ user }}/.config/Code
   file.directory:
     - user: {{ user }}
