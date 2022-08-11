@@ -12,5 +12,10 @@ if [[ "${SALT_VERSION}" != "${EXPECTED_SALT_VERSION}" ]]; then
     curl -s -L https://bootstrap.saltproject.io | sudo sh -s -- \
 							   -P \
 							   -q \
-          git ${SALT_GIT_TAG}
+							   git ${SALT_GIT_TAG}
+    echo 
+    echo "changed=yes comment='saltstack version updated'"
+else
+    echo 
+    echo "changed=no comment='no version changes needed'"
 fi
