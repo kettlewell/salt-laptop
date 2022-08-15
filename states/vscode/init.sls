@@ -15,11 +15,13 @@ include:
     - makedirs: True
 
 # vscode extensions
-{% for extension in my_user['vscode_extensions'] %}
-file.touch:
-  - name: /tmp/{{ extension }}
-{% endfor %} # end vscode extensions
+{% for extensions in my_user['vscode_extensions'] %}
+{% for extension in extensions %}
 
+file.touch:
+  - name: /tmp/{{ my_user }}/{{ extension }}
+{% endfor %} # end vscode extensions
+{% endfor %}
 {% endfor %}
 
 
