@@ -5,3 +5,7 @@ users:
       - ms-python.python
       - ms-python.vscode-pylance 
   - jen
+    vscode_extensions:
+      - eamodio.gitlens
+      - ms-python.python
+      - ms-python.vscode-pylance 
