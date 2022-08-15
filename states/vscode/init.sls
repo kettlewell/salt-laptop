@@ -15,7 +15,7 @@ include:
     - makedirs: True
 
 # vscode extensions
-{% set my_extensions = users_file['{{ my_user }}']['vscode_extensions'] %}
+{% set my_extensions = my_user['vscode_extensions'] %}
 {% for extension in my_extensions %}
 file.touch:
   - name: /tmp/{{ extension }}
