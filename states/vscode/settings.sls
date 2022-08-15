@@ -5,16 +5,17 @@ include:
 {% import_yaml 'users/data/users.yaml' as users_file %}
 {% for user, userattr in users_file['users'].items() %}
 
-{% set custom_bashrc = user  if userattr.custom_bashrc is defined and userattr.custom_bashrc else 'default' %}
+{%   if userattr.vscode_settings is defined and userattr.vscode_settings %}
 
-/home/{{ user }}/.bashrc:
+/home/{{ user }}/.config/Code/User/settings.json:
   file.managed:
     - require:
       - sls: users.create-users
-    - source: salt://users/files/{{custom_bashrc}}/bashrc
+      - sls: vscode.create-dir
+    - source: salt://vscode/files/{{user}}.vscode_settings.json
     - user: {{user}}
     - group: {{user}}
     - mode: 755
 
-
+{% endif %}
 {% endfor %}

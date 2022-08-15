@@ -1,9 +1,15 @@
 users:
-  - matt
-    - vscode_extensions
+  matt:
+    vscode_extensions:
       - eamodio.gitlens
       - ms-python.python
       - ms-python.vscode-pylance
-  - jen
-    - vscode_extensions
+    vscode_settings: True
+    custom_bashrc: True
+    custom_aliases: False
+    custom_profile: False
+    custom_emacs: False
+
+  jen:
+    vscode_extensions:
       - eamodio.gitlens

@@ -1,13 +1,9 @@
 #!jinja|yaml
-
 {% import_yaml 'users/data/users.yaml' as users_file %}
-{% set users = users_file['users'] %}
-
-
-# create user directory for each user
-{% for this_user in users %}
-{{ this_user }}:
+{% for user, userattr in users_file['users'].items() %}
+username_{{ user }}:
   user.present:
-    - fullname: {{ this_user }}
-    - name: {{ this_user }}
+    - fullname: {{ user }}
+    - name: {{ user }}
+
 {% endfor %}

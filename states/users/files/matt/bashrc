@@ -1,0 +1,141 @@
+# .bashrc
+
+# sourcing globally from /etc/profile.d/proxy.sh 
+#if [ -f ${HOME}/.proxy.sh ]; then
+#	. ${HOME}/.proxy.sh
+#fi
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# What does this do?
+shopt -s checkwinsize
+
+# User Exports
+
+# Use Vagrant Experimental features for trigger dependencies
+export VAGRANT_EXPERIMENTAL="0"
+export VAGRANT_DEFAULT_PROVIDER=libvirt
+
+# GPG_TTY for signing git commits
+GPG_TTY=$(tty)
+export GPG_TTY
+
+# Needed?
+export BROWSER=/usr/bin/google-chrome
+export EDITOR="/usr/bin/emacs"
+export ALTERNATE_EDITOR='/usr/bin/emacs'
+export EMACSCLIENT=""
+export VISUAL=${EDITOR}
+
+
+export SRC_HILITE=`which src-hilite-lesspipe.sh`
+export LESSPIPE=`which lesspipe.sh`
+export LESSOPEN="|${LESSPIPE} %s"
+export LESS=' -R -s -F -X'
+
+# Required for ls colors
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
+
+shopt -s histappend # Append History
+shopt -s cmdhist    # multi-line cmds to oneline
+export PROMPT_COMMAND="${PROMPT_COMMAND};history -a;history -n"   # write history after each command
+export HISTSIZE=1000000
+export HISTFILESIZE=1000000
+export HISTCONTROL=ignoredups:erasedups
+export HISTIGNORE="bg:fg:history"
+export HISTTIMEFORMAT="[%F %T] "
+export HISTFILE=${HOME}/.bash_eternal_history
+
+# User Functions
+if [ -f ${HOME}/.bash_functions ]; then
+    . ${HOME}/.bash_functions
+fi
+
+# User Aliases
+if [ -f ${HOME}/.bash_aliases ]; then
+    . ${HOME}/.bash_aliases
+fi
+alias qemacs="emacs -nw -q"
+
+## https://github.com/magicmonty/bash-git-prompt
+GIT_PROMPT_SH="${HOME}/git/bash-git-prompt/gitprompt.sh"
+
+#if [[ -f ${GIT_PROMPT_SH} ]] && [[ test_bb_connectivity ]]; then
+if [[ -f ${GIT_PROMPT_SH} ]] ; then
+    GIT_PROMPT_ONLY_IN_REPO=0
+    GIT_PROMPT_SHOW_UPSTREAM=1 # uncomment to show upstream tracking branch
+
+    # GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
+    # GIT_PROMPT_IGNORE_SUBMODULES=1 # uncomment to avoid searching for changed files in submodules
+    # GIT_PROMPT_WITH_VIRTUAL_ENV=0 # uncomment to avoid setting virtual environment infos for node/python/conda environments
+
+    # GIT_PROMPT_SHOW_UNTRACKED_FILES=normal # can be no, normal or all; determines counting of untracked files
+
+    # GIT_PROMPT_SHOW_CHANGED_FILES_COUNT=0 # uncomment to avoid printing the number of changed files
+
+    # GIT_PROMPT_STATUS_COMMAND=gitstatus_pre-1.7.10.sh # uncomment to support Git older than 1.7.10
+
+    # GIT_PROMPT_START=...    # uncomment for custom prompt start sequence
+    # GIT_PROMPT_END=...      # uncomment for custom prompt end sequence
+
+    # as last entry source the gitprompt script
+    # GIT_PROMPT_THEME=Custom # use custom theme specified in file GIT_PROMPT_THEME_FILE (default ~/.git-prompt-colors.sh)
+    # GIT_PROMPT_THEME_FILE=~/.git-prompt-colors.sh
+
+    #GIT_PROMPT_THEME=Solarized # use theme optimized for solarized color scheme
+    #GIT_PROMPT_THEME=Chmike
+    #GIT_PROMPT_THEME=Crunch
+    GIT_PROMPT_THEME=Default
+    #GIT_PROMPT_THEME=Default_NoExitState
+    #GIT_PROMPT_THEME=Evermeet
+    #GIT_PROMPT_THEME=Evermeet_Lowres
+    #GIT_PROMPT_THEME=Minimal
+    #GIT_PROMPT_THEME=Minimal_Chevron
+    #GIT_PROMPT_THEME=Minimal_UserHost
+    #GIT_PROMPT_THEME=Plague_Doctor
+    #GIT_PROMPT_THEME=Single_line
+    #GIT_PROMPT_THEME=Single_line_Dark
+    #GIT_PROMPT_THEME=Single_line_Minimalist
+    #GIT_PROMPT_THEME=Single_line_NoExitState
+    #GIT_PROMPT_THEME=Single_line_Solarized
+    #GIT_PROMPT_THEME=Single_line_Solarized_Lamda
+    #GIT_PROMPT_THEME=Single_line_username_repo
+    #GIT_PROMPT_THEME=Solarized_Extravagant
+    #GIT_PROMPT_THEME=Solarized_NoExitState
+    #GIT_PROMPT_THEME=Solarized_Ubuntu
+    #GIT_PROMPT_THEME=Solarized_UserHost
+    #GIT_PROMPT_THEME=TruncatedPwd_WindowTitle
+    #GIT_PROMPT_THEME=TruncatedPwd_WindowTitle_NoExitState
+
+    source ${GIT_PROMPT_SH}
+fi
+
+export GOPATH=${HOME}/go
+
+export CMAKE_C_COMPILER=clang-14
+export CMAKE_CXX_COMPILER=clang++-14
+export PYENV_ROOT=${HOME}/.pyenv
+
+export PATH=${PYENV_ROOT}/bin:${HOME}/.poetry/bin:${PATH}:/usr/share/bcc/tools/:/usr/share/bpftools/tools/:${GOPATH}/bin
+
+
+# de-duplicate the PATH
+
+export PATH=`printf %s "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
+. "$HOME/.cargo/env"
+
+# >>>> Vagrant command completion (start)
+. /opt/vagrant/embedded/gems/2.2.19/gems/vagrant-2.2.19/contrib/bash/completion.sh
+# <<<<  Vagrant command completion (end)
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+
