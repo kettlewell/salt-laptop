@@ -29,7 +29,7 @@ system_packages:
       - diffstat
       - diffutils
 #      - dockerce
-      - dolphin
+#      - dolphin
       - eatmydata
       - efibootmgr
       - efivar
@@ -51,7 +51,7 @@ system_packages:
 #      - gpaste
       - gpg
 #      - gpg-agent
-      - gwenview
+#      - gwenview
       - haveged
       - hddtemp
 #      - helm
