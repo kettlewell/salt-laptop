@@ -1,5 +1,5 @@
 #!jinja|yaml
-{% import_yaml '/srv/salt-laptop/states/users/data/users.yaml' as users_file %}
+{% import_yaml 'users/data/users.yaml' as users_file %}
 {% set users = users_file['users'] %}
 
 
