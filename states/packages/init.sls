@@ -5,19 +5,122 @@ system_packages:
   pkg.installed:
     - refresh: True
     - pkgs:
+      - autoconf
+      - automake
+      - bash-completion
+      - bc
+      - binutils
+      - black
+      - ca-certificates
       - code: '1.70*'
+      - colord
+      - colord-data
+      - containerd.io
+      - cool-retro-term
+      - coreutils
+      - cowbuilder
+      - cowdancer
+      - cpio
       - curl
+      - dconf-editor
+      - diffstat
+      - diffutils
+      - dockerce
+      - dolphin
+      - eatmydata
+      - efibootmgr
+      - efivar
+      - emacs-nox
+      - ethtool
+      - fdisk
+      - ffmpeg
+      - flake8
+      - fonts-3270
+      - fonts-cantarell
+      - fonts-dejavu
+      - fonts-dejavu-core
+      - fonts-dejavu-extra
+      - fonts-droid-fallback
+      - fonts-font-awesome
+      - fonts-hack
+      - fonts-inconsolata
+      - fonts-lato
+      - fonts-liberation
+      - fonts-liberation2
+      - fonts-mathjax
+      - fonts-noto
+      - fonts-noto-cjk
+      - fonts-noto-cjk-extra
+      - fonts-noto-color-emoji
+      - fonts-noto-core
+      - fonts-noto-extra
+      - fonts-noto-hinted
+      - fonts-noto-mono
+      - fonts-noto-ui-core
+      - fonts-noto-ui-extra
+      - fonts-noto-unhinted
+      - fonts-opensymbol
+      - fonts-quicksand
+      - fonts-sil-gentium
+      - fonts-sil-gentium-basic
+      - fonts-symbola
+      - fonts-urw-base35
+      - fonts-vlgothic
+      - g++
+      - gawk
+      - gcc
+      - gdb
+      - gdb-minimal
       - git
+      - git-man
+      - gitg
+      - gitk
+      - google-chrome-stable
+      - gpaste
+      - gpg
+      - gpg-agent
+      - gwenview
+      - haveged
+      - hddtemp
+      - helm
+      - hfsplus
+      - hicolor-icon-theme
+      - highlight
+      - highlight-common
+      - hitori
+      - htop
+      - httpd
+      - iftop
+      - iotop
+      - llvm
+      - lm-sensors
+      - lp-solve
+      - lsof
+      - lsscsi
+      - mariadb
+      - most
+      - msgpack-cli
       - mtr
+      - netcat
+      - os-prober
+      - osinfo
+      - packer
+      - pgadmin4
       - pigz
       - pinentry
       - pinentry-tty
       - postgresql
+      - postgresql
       - procps-ng
       - rsync
+      - slack-desktop
       - socat
+      - socat
+      - sqlite3
+      - strace
       - strace
       - sysfsutils
+      - tcpdump
       - tig
       - tmux
       - traceroute
@@ -25,7 +128,10 @@ system_packages:
       - wget
       - whois
       - wireshark
+      - wireshark
+      - yubikey-manager
       - zip
+      - zoom
 
 #      - packer
 #      - yq
