@@ -9,6 +9,5 @@
 {{ this_user }}:
   user.present:
     - fullname: {{ this_user }}
-    - user: {{ this_user }}
-    - group: {{ this_user }}
+    - name: {{ this_user }}
 {% endfor %}
