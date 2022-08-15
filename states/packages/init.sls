@@ -38,7 +38,10 @@ system_packages:
 #      - fdisk
 #      - ffmpeg
 #      - flake8
-      - g++
+      - gcc
+      - gcc-c++
+      - gcc-gfortran
+      - gcc-go
       - gawk
       - gcc
       - gdb
