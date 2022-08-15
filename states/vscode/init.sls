@@ -5,7 +5,6 @@ include:
 {% import_yaml 'users/data/users.yaml' as users_file %}
 {% set users = users_file['users'] %}
 
-
 # create Code directory for each user
 {% for my_user in users %}
 /home/{{ my_user }}/.config/Code:
@@ -14,6 +13,11 @@ include:
     - group: {{ my_user }}
     - mode: 700
     - makedirs: True
+
+{% for my_extensions in users['vscode_extensions'] %}
+test.show_notification:
+  name: vscode_extension_{{ my_extensions}}
+  text: {{ my_extensions }}
 {% endfor %}
 
 

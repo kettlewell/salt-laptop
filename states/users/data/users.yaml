@@ -1,3 +1,7 @@
 users:
   - matt
+    vscode_extensions:
+      - eamodio.gitlens
+      - ms-python.python
+      - ms-python.vscode-pylance 
   - jen
