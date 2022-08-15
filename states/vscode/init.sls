@@ -1,4 +1,7 @@
 #!jinja|yaml
+include:
+  - create-users
+
 {% import_yaml 'users/data/users.yaml' as users_file %}
 {% set users = users_file['users'] %}
 
