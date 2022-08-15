@@ -1,5 +1,9 @@
 #!jinja|yaml
-{% set users = salt['pillar.get']('users', []) %}
+{% import_yaml '/srv/salt-laptop/states/users/data/users.yaml' as users_file %}
+{% set users = users_file['users'] %}
+
+
+# create Code directory for each user
 {% for my_user in users %}
 /home/{{ my_user }}/.config/Code:
   file.directory:
@@ -8,3 +12,14 @@
     - mode: 700
     - makedirs: True
 {% endfor %}
+
+
+# install extensions for each user
+
+# install settings.json per user ?
+
+# install keybindings.json per user?
+
+# install ~/.vscode/argv.json ?
+
+
