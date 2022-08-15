@@ -5,10 +5,10 @@
 
 
 # create user directory for each user
-{% for user in users %}
-{{ user }}:
+{% for this_user in users %}
+{{ this_user }}:
   user.present:
-    - fullname: {{ user }}
-    - user: {{ user }}
-    - group: {{ user }}
+    - fullname: {{ this_user }}
+    - user: {{ this_user }}
+    - group: {{ this_user }}
 {% endfor %}
