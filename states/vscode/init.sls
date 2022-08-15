@@ -20,6 +20,8 @@ test.show_notification:
   text: {{ my_extensions }}
 {% endfor %}
 
+{% endfor %}
+
 
 # install extensions for each user
 
