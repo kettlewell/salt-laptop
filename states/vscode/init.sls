@@ -14,14 +14,14 @@ include:
     - mode: 700
     - makedirs: True
 
-{% for my_extensions in my_user['vscode_extensions'] %}
+{%# for my_extensions in my_user['vscode_extensions'] %}
 {% for my_extension in my_extensions %}
 
 test.show_notification:
   name: vscode_extension_{{ my_extensions}}
   text: {{ my_extensions }}
 {% endfor %}
-{% endfor %}
+{% endfor #%}
 {% endfor %}
 
 
