@@ -10,114 +10,83 @@ system_packages:
       - bash-completion
       - bc
       - binutils
-      - black
+#      - black
       - ca-certificates
       - code: '1.70*'
       - colord
-      - colord-data
-      - containerd.io
-      - cool-retro-term
+      - colord-libs
+      - colord-gtk
+      - colord-kde
+      - colordiff
+#      - containerd.io
+#      - cool-retro-term
       - coreutils
-      - cowbuilder
-      - cowdancer
+#      - cowbuilder
+#      - cowdancer
       - cpio
       - curl
       - dconf-editor
       - diffstat
       - diffutils
-      - dockerce
+#      - dockerce
       - dolphin
       - eatmydata
       - efibootmgr
       - efivar
       - emacs-nox
       - ethtool
-      - fdisk
-      - ffmpeg
-      - flake8
-      - fonts-3270
-      - fonts-cantarell
-      - fonts-dejavu
-      - fonts-dejavu-core
-      - fonts-dejavu-extra
-      - fonts-droid-fallback
-      - fonts-font-awesome
-      - fonts-hack
-      - fonts-inconsolata
-      - fonts-lato
-      - fonts-liberation
-      - fonts-liberation2
-      - fonts-mathjax
-      - fonts-noto
-      - fonts-noto-cjk
-      - fonts-noto-cjk-extra
-      - fonts-noto-color-emoji
-      - fonts-noto-core
-      - fonts-noto-extra
-      - fonts-noto-hinted
-      - fonts-noto-mono
-      - fonts-noto-ui-core
-      - fonts-noto-ui-extra
-      - fonts-noto-unhinted
-      - fonts-opensymbol
-      - fonts-quicksand
-      - fonts-sil-gentium
-      - fonts-sil-gentium-basic
-      - fonts-symbola
-      - fonts-urw-base35
-      - fonts-vlgothic
+#      - fdisk
+#      - ffmpeg
+#      - flake8
       - g++
       - gawk
       - gcc
       - gdb
       - gdb-minimal
       - git
-      - git-man
-      - gitg
+#      - git-man
+#      - gitg
       - gitk
-      - google-chrome-stable
-      - gpaste
+#      - google-chrome-stable
+#      - gpaste
       - gpg
-      - gpg-agent
+#      - gpg-agent
       - gwenview
       - haveged
       - hddtemp
-      - helm
-      - hfsplus
+#      - helm
+#      - hfsplus
       - hicolor-icon-theme
       - highlight
-      - highlight-common
-      - hitori
+#      - highlight-common
+#      - hitori
       - htop
       - httpd
       - iftop
       - iotop
       - llvm
-      - lm-sensors
-      - lp-solve
+#      - lm-sensors
+#      - lp-solve
       - lsof
       - lsscsi
       - mariadb
       - most
-      - msgpack-cli
+#      - msgpack-cli
       - mtr
       - netcat
       - os-prober
-      - osinfo
-      - packer
-      - pgadmin4
+#      - osinfo
+#      - packer
+#      - pgadmin4
       - pigz
       - pinentry
       - pinentry-tty
       - postgresql
-      - postgresql
       - procps-ng
       - rsync
-      - slack-desktop
+#      - slack-desktop
       - socat
-      - socat
-      - sqlite3
-      - strace
+#      - sqlite3
       - strace
       - sysfsutils
       - tcpdump
@@ -129,9 +98,9 @@ system_packages:
       - whois
       - wireshark
       - wireshark
-      - yubikey-manager
+#      - yubikey-manager
       - zip
-      - zoom
+#      - zoom
 
 #      - packer
 #      - yq
