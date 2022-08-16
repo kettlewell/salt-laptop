@@ -11,6 +11,8 @@ gsettings_set_{{user}}_{{ path }}_{{ key }}_{{ value }}:
     - name: gsettings set {{ path }} {{ key }} "{{ value }}"
     - cwd: /home/{{ user }}
     - runas: {{ user }}
+    - user: {{ user }}
+    
 #    - unless: gsettings get {{ path }} {{ key }} | grep -q {{ regex }} 
 
 {%- endmacro %}
