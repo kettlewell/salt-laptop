@@ -6,7 +6,7 @@ include:
 
 {% set custom_aliases = user  if userattr.custom_aliases is defined and userattr.custom_aliases else 'default' %}
 
-{% if user is not 'default' %}
+{% if user == 'default' %}
 
 /home/{{ user }}/.bash_aliases:
   file.managed:
