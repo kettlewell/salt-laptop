@@ -12,6 +12,5 @@ gsettings_set_{{user}}_{{ path }}_{{ key }}_{{ value }}:
     - cwd: /
     - user: {{ user }}
     - unless: gsettings get {{ path }} {{ key }} | grep -q {{ regex }} 
-# TODO: Does "dconf update" need to be ran?
 
 {%- endmacro %}
