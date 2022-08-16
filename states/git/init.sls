@@ -16,7 +16,11 @@ include:
     - makedirs: True
 
 
-{% set http_repo_name,http_repo_dir = userattr['git_repos_https'].items() %}
+{% set http_repo = userattr.git_repos_https %}
+{% for repo in http_repo %}
+{% set http_repo_name = repo.url %}
+{% set http_repo_dir = repo.dir %}
+
 
 git_clone_{{http_repo_name}}:
   git.cloned:
@@ -27,5 +31,6 @@ git_clone_{{http_repo_name}}:
       - file: /home/{{ user }}/git
     - user: {{user}}
 
+{% endfor %}
 {% endif %}
 {% endfor %}
