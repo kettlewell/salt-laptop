@@ -13,7 +13,7 @@ include:
 # Make the default button layout a lot less stupid
 {{ gsettings(user, "org.gnome.desktop.wm.preferences", "button-layout", ':minimize,maximize,close', "':minimize,maximize,close'") }}
 
-{{ gsettings(user, "org.gnome.shell", "favorite-apps", gnome_launcher_apps , "google-chrome") }}
+{{ gsettings(user, "org.gnome.shell", "favorite-apps", "gnome_launcher_apps" , "google-chrome") }}
 
 
 {% endif %}
