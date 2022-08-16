@@ -37,10 +37,3 @@ include:
 
 {% endif %}
 {% endfor %}
-
-
-
-
-
-
-{% endif %}
