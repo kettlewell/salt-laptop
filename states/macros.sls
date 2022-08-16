@@ -8,7 +8,7 @@
 {% macro gsettings(user, path, key, value, regex) %} 
 gsettings_set_{{user}}_{{ path }}_{{ key }}_{{ value }}: 
   cmd.run:
-    - name: gsettings set {{ path }} {{ key }} {{ value }}
+    - name: gsettings set {{ path }} {{ key }} "{{ value }}"
     - cwd: /
     - user: {{ user }}
     - unless: gsettings get {{ path }} {{ key }} | grep -q {{ regex }} 
