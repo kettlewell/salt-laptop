@@ -60,6 +60,7 @@ users:
       - org.gnome.Terminal.desktop
       - code.desktop
       - google-chrome.desktop
+      - slack.desktop
   jen:
     vscode_extensions:
       - eamodio.gitlens
