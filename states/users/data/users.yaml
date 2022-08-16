@@ -13,8 +13,11 @@ users:
     custom_emacs: True
     git_repos_https:
       - https://github.com/kettlewell/emacs.d.git
+        emacs.d
+      
     git_repos_ssh:
       - git@github.com:kettlewell/emacs.d.git
+        emacs.d
 
   jen:
     vscode_extensions:

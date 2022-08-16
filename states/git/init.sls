@@ -16,12 +16,11 @@ include:
     - makedirs: True
 
 
-{% for http_repo in userattr.git_repos_https %}
-{% set http_repo_name = http_repo | replace(".git", "") | split('/') %}
-git_clone_{{http_repo}}:
+{% for http_repo_name,http_repo_dir in userattr.['git_repos_https'].items() %}
+git_clone_{{http_repo_name}}:
   git.cloned:
-    - name: {{ http_repo}}
-    - target: /home/{{ user }}/git/{{http_repo_name[4] }}
+    - name: {{ http_repo_name}}
+    - target: /home/{{ user }}/git/{{http_repo_dir }}
     - require:
       - sls: users.create-users
       - file: /home/{{ user }}/git
