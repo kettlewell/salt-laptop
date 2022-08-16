@@ -8,7 +8,7 @@ include:
 {% for user, userattr in users_file['users'].items() %}
 {% if userattr.gnome_launcher_apps is defined and userattr.gnome_launcher_apps %}
 {% set gnome_launcher_apps = userattr.gnome_launcher_apps %}
-{% set gnome_launcher_apps =  '\"' + gnome_launcher_apps|join('\", \"') + '\"' %}
+{% set gnome_launcher_apps =  gnome_launcher_apps|join('\', \'') %}
 
 {# % set gnome_launcher_apps =  '\'' + gnome_launcher_apps|join('\',\'') + '\''  % #}
 
