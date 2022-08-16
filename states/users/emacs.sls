@@ -6,7 +6,7 @@ include:
 
 {% set custom_emacs = user  if userattr.custom_emacs is defined and userattr.custom_emacs else 'default' %}
 
-{% if user is not 'default' %}
+{% if user != 'default' %}
 /home/{{ user }}/.emacs.d:
   file.directory:
     - requires:

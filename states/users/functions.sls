@@ -6,7 +6,7 @@ include:
 
 {% set custom_functions = user  if userattr.custom_functions is defined and userattr.custom_functions else 'default' %}
 
-{% if user is not 'default' %}
+{% if user != 'default' %}
 
 /home/{{ user }}/.bash_functions:
   file.managed:
