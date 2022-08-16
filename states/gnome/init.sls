@@ -10,7 +10,7 @@ include:
 {% set gnome_launcher_apps = userattr.gnome_launcher_apps %}
 {# % set gnome_launcher_apps =  gnome_launcher_apps|join('\', \'') % #}
 
-{% set gnome_launcher_apps =  '\'' + gnome_launcher_apps|join('\',\'') + '\''  %}
+{% set gnome_launcher_apps =   gnome_launcher_apps|join('\',\'')   %}
 
 # Make the default button layout a lot less stupid
 {{ gsettings(user, "org.gnome.desktop.wm.preferences", "button-layout", 'appmenu:minimize,maximize,close', "':minimize,maximize,close'") }}
