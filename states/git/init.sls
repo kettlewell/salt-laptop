@@ -26,4 +26,5 @@ git_clone_{{http_repo}}:
       - file: /home/{{ user }}/git
     user: {{user}}
 
+{% endif %}
 {% endfor %}
