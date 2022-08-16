@@ -14,7 +14,7 @@ include:
     - source: salt://users/files/{{custom_bashrc}}/bashrc
     - user: {{user}}
     - group: {{user}}
-    - mode: 755
+    - mode: 644
 
 
 {% endfor %}

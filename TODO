@@ -12,3 +12,7 @@ optional:
 
 prometheus
 databases
+
+Things to Fix:
+vscode install extensions always show a change, even when nothing has changed
+
