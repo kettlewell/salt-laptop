@@ -22,6 +22,7 @@ system_packages:
 #      - cowdancer
       - cpio
       - curl
+      - dbus-x11
       - dconf-editor
       - diffstat
       - diffutils
