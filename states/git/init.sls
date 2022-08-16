@@ -21,7 +21,7 @@ include:
 {% set git_url = repo.url + '/' + repo.dir + '.git' %}
 
 
-git_clone_:
+git_clone_{{ git_url }}:
   git.cloned:
     - name: {{ git_url }}
     - target: /home/{{ user }}/git/{{ repo.dir }}
