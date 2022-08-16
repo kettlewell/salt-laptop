@@ -26,7 +26,7 @@ system_packages:
       - diffstat
       - diffutils
 #      - dockerce
-#      - dolphin
+      - dolphin
       - eatmydata
       - efibootmgr
       - efivar

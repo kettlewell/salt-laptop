@@ -4,4 +4,6 @@ base:
     - packages
     - cron
     - vscode
-    
+    - git
+    - gnome
+    - docker
