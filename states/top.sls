@@ -1,9 +1,9 @@
 base:
   '*':
-    - users
     - packages
+    - users
+    - git
     - cron
     - vscode
-    - git
     - gnome
     - docker

@@ -1,20 +1,29 @@
 Things to add
-global git config files
-gnome favorites icons
+* global git config files
 
-slack
-go
-docker
-dotfiles
+* slack
+* go
+* docker
+* bookmarks
+* bin/scripts
+* .tmux.conf
+* .Xdefaults
 
-bookmarks
-
+* SSH Keys
 
 optional:
 
-prometheus
-databases
+* prometheus
+* databases
 
 Things to Fix:
-vscode install extensions always show a change, even when nothing has changed
+* vscode install extensions always show a change, even when nothing has changed
+* gnome favorites icons
 
+Done-ish:
+* dotfiles
+
+
+TODO:
+in users.init add a new state ( users.pull_dotfiles )
+and use the dotfiles in there for bashrc, aliases, functions, etc ... or just pull them all from dot files into here... actually, that might be the better way to keep them all in once place... but also makes it more tightly coupled to salt, and less indendent... so keep it in dotfiles, and pull it into salt via git and link files
