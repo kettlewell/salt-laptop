@@ -35,7 +35,7 @@ users:
       - url: https://github.com/geerlingguy
         dir: packer-boxes
       - url: https://github.com/saltstack
-        dir: saltstack
+        dir: salt
       - url: https://github.com/tmux-plugins
         dir: tpm
       - url: https://github.com/jzfai
