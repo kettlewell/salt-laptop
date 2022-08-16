@@ -18,14 +18,13 @@ include:
 
 {% set http_repo = userattr.git_repos_https %}
 {% for repo in http_repo %}
-{% set http_repo_name = repo.url %}
-{% set http_repo_dir = repo.dir %}
+{% set git_url = repo.url + '/' + repo.dir + '.git' %}
 
 
-git_clone_{{http_repo_name}}:
+git_clone_:
   git.cloned:
-    - name: {{ http_repo_name}}
-    - target: /home/{{ user }}/git/{{http_repo_dir }}
+    - name: {{ git_url }}
+    - target: /home/{{ user }}/git/{{ repo.dir }}
     - require:
       - sls: users.create-users
       - file: /home/{{ user }}/git
