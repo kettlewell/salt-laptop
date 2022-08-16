@@ -9,8 +9,8 @@
 gsettings_set_{{user}}_{{ path }}_{{ key }}_{{ value }}: 
   cmd.run:
     - name: gsettings set {{ path }} {{ key }} "{{ value }}"
-    - cwd: /
-    - user: {{ user }}
+    - cwd: /home/{{ user }}
+    - runas: {{ user }}
 #    - unless: gsettings get {{ path }} {{ key }} | grep -q {{ regex }} 
 
 {%- endmacro %}
