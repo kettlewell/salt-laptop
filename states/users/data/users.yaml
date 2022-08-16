@@ -14,11 +14,47 @@ users:
     git_repos_https:
       - url: https://github.com/kettlewell
         dir: emacs.d
-      
-    git_repos_ssh:
-      - git@github.com:kettlewell/emacs.d.git
-        emacs.d
+      - url: https://github.com/codeforester
+        dir: base
+      - url: https://github.com/sathisharthar
+        dir: admin-scripts
+      - url: https://github.com/magicmonty
+        dir: bash-git-prompt
+      - url: https://github.com/labbots
+        dir: bash-utility
+      - url: https://github.com/hariwin7
+        dir: dynamic-vue-components
+      - url: https://github.com/testdrivenio
+        dir: fastapi-vue
+      - url: https://github.com/tiangolo
+        dir: full-stack-fastapi-postgresql
+      - url: https://github.com/FrenzyHarmony
+        dir: nginx-fastapi-vuejs
+      - url: https://github.com/nginx-proxy
+        dir: nginx-proxy
+      - url: https://github.com/geerlingguy
+        dir: packer-boxes
+      - url: https://github.com/saltstack
+        dir: saltstack
+      - url: https://github.com/tmux-plugins
+        dir: tpm
+      - url: https://github.com/jzfai
+        dir: vue3-admin-ts
+      - url: https://github.com/NovoManu
+        dir: vue-smart-layouts
 
+
+    git_repos_ssh:
+      - url: admin01.kettlewell.fam:/data/git-bare
+        dir: snips
+      - url: git@github.com:kettlewell
+        dir: dotfiles
+      - url: git@github.com:kettlewell
+        dir: flowstate
+      - url: git@github.com:kettlewell
+        dir: prototypical
+      - url: git@github.com:kettlewell
+        dir: me        
   jen:
     vscode_extensions:
       - eamodio.gitlens
