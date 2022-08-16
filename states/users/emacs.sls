@@ -21,7 +21,7 @@ include:
     - require:
       - sls: users.create-users
       - file: /home/{{ user }}/.emacs.d
-    - source: salt://users/files/{{custom_profile}}/emacs
+    - source: salt://users/files/{{user}}/emacs
     - user: {{user}}
     - group: {{user}}
     - mode: 700
