@@ -146,10 +146,11 @@ export PATH=${PYENV_ROOT}/bin:${HOME}/.poetry/bin:${PATH}:/usr/share/bcc/tools/:
 # de-duplicate the PATH
 
 export PATH=`printf %s "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
-. "$HOME/.cargo/env"
+
+# . "$HOME/.cargo/env"
 
 # >>>> Vagrant command completion (start)
-. /opt/vagrant/embedded/gems/2.2.19/gems/vagrant-2.2.19/contrib/bash/completion.sh
+# . /opt/vagrant/embedded/gems/2.2.19/gems/vagrant-2.2.19/contrib/bash/completion.sh
 # <<<<  Vagrant command completion (end)
 
 export NVM_DIR="$HOME/.nvm"
