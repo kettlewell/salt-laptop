@@ -13,7 +13,7 @@ include:
 # Make the default button layout a lot less stupid
 {{ gsettings(user, "org.gnome.shell.overrides", "button-layout", ':minimize,maximize,close', "':minimize,maximize,close'") }}
 
-{{ gsettings(user, "org.gnome.shell", "favorite-apps", "['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'yelp.desktop', 'org.gnome.Terminal.desktop', 'code.desktop']"") }}
+{{ gsettings(user, "org.gnome.shell", "favorite-apps", "['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'yelp.desktop', 'org.gnome.Terminal.desktop', 'code.desktop']") }}
 
 
 {% endif %}
