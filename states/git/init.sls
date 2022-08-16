@@ -25,6 +25,7 @@ git_clone_{{http_repo}}:
       - sls: users.create-users
       - file: /home/{{ user }}/git
     user: {{user}}
+{% endfor %}
 
 {% endif %}
 {% endfor %}
