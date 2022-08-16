@@ -1,0 +1,333 @@
+#!/usr/bin/env bash
+
+# allow pip to install something globally
+
+gpip() {
+   PIP_REQUIRE_VIRTUALENV="0" pip3 "$@"
+}
+
+function csdiff(){
+    if [[ -f $1 ]] && [[ -f $2 ]];then
+        /usr/bin/diff -W 165 -t -w --suppress-common-lines -y  $1 $2 | /usr/bin/colordiff
+    elif [[ -d $1 ]] && [[ -d $2 ]]; then
+        # recursive diff doesn't work with color diff... will need to use something like find instead
+        # for now... just recursive diff ( -r ) without colordiff
+        /usr/bin/diff -r -W 165 -t -w --suppress-common-lines -y  $1 $2
+    else
+        echo "csdiff ERROR: Both arguments must be same type, either FILE or DIRECTORY"
+    fi
+}
+
+#_complete_ssh_hosts ()
+#{
+#        COMPREPLY=()
+#        cur="${COMP_WORDS[COMP_CWORD]}"
+#        comp_ssh_hosts=`cat ~/.ssh/known_hosts | \
+#                        cut -f 1 -d ' ' | \
+#                        sed -e s/,.*//g | \
+#                        grep -v ^# | \
+#                        uniq | \
+#                        grep -v "\[" ;
+#                cat ~/.ssh/config | \
+#                        grep "^Host " | \
+#                        awk '{print $2}'
+#                `
+#        COMPREPLY=( $(compgen -W "${comp_ssh_hosts}" -- $cur))
+#        return 0
+#}
+#complete -F _complete_ssh_hosts ssh
+
+test_connectivity_extended(){
+   URL=$1
+   PORT=$2
+    # Check network connectivity
+    TIMEOUT=$(command -v timeout)
+    itest=$(${TIMEOUT} 1 bash -c "echo >/dev/tcp/${URL}/${PORT}" && echo "port is open" || echo "port is closed")
+    count=0
+    while [ "$itest" != "port is open" ]
+    do
+        sleep 5
+        /usr/bin/printf "waiting for ${URL}:${PORT} to come up...[ %s / 1000 ]\n" "${count}"
+        itest=$(${TIMEOUT} 1 bash -c "echo >/dev/tcp/${URL}/${PORT}" && echo "port is open" || echo "port is closed")
+        count=$((count+1))
+        if [[ "$count" -gt "0" ]]
+        then
+            /usr/bin/printf "Count Threshold Exceeded. Network Might Not Be Established to ${URL}:${PORT}\n"
+            printf "Connectivity Completed With Errors: %s\n" "$(date)"
+            printf "===================================\n\n"
+            exit
+        fi
+    done
+
+    /usr/bin/printf "Network Appears To Be Established to ${URL}:${PORT} - Continuing. \n"
+}
+
+test_connectivity(){
+    URL=$1
+    PORT=$2
+    # Check network connectivity
+    TIMEOUT=$(command -v timeout)
+    itest=$(${TIMEOUT} 1 bash -c "echo >/dev/tcp/${URL}/${PORT}" && echo "port is open" || echo "port is closed")
+
+    if [[ "$itest" != "port is open" ]];
+    then
+        echo 0
+    else
+	echo 1
+    fi	    
+}
+
+# https://stackoverflow.com/a/14725655
+
+
+hexToInt() {
+    printf -v $1 "%d\n" 0x${2:6:2}${2:4:2}${2:2:2}${2:0:2}
+}
+
+intToIp() {
+    local var=$1 iIp
+    shift
+    for iIp ;do
+	printf -v $var "%s %s.%s.%s.%s" "${!var}" $(($iIp>>24)) \
+	       $(($iIp>>16&255)) $(($iIp>>8&255)) $(($iIp&255))
+    done
+}
+
+maskLen() {
+    local i
+    for ((i=0; i<32 && ( 1 & $2 >> (31-i) ) ;i++));do :;done
+    printf -v $1 "%d" $i
+}
+
+6to4 () {
+    tr : " " <<< ${1: -9} | (
+	read h1 h2
+	printf "%d.%d.%d.%d\n" 0x${h1:0:2} 0x${h1:2:2} 0x${h2:0:2} 0x${h2:2:2}
+    )
+}
+
+
+
+
+## Text Processing
+
+function join_by() {
+    local d="$1"
+    shift
+    echo -n "$1"
+    shift
+    printf "%s" "${@/#/$d}"
+}
+
+function expand() {
+    local thing
+    thing=($(eval echo "$1"))
+    join_by "${2:- }" "${thing[@]}"
+    echo
+}
+
+function indent() {
+    local spaces
+    spaces="$(printf "%${1?}s" "")"
+
+    sed "s/^\(.\)/${spaces}\1/g"
+}
+
+function upper() {
+    tr '[:lower:]' '[:upper:]'
+}
+
+function lower() {
+    tr '[:upper:]' '[:lower:]'
+}
+
+function stripcontrol() {
+    gsed 's/\x1B[@A-Z\\\]^_]\|\x1B\[[0-9:;<=>?]*[-!"#$%&'"'"'()*+,.\/]*[][\\@A-Z^_`a-z{|}~]//g'
+}
+
+## Jira
+
+function j() {
+    jira list -q "issue = ${1?}"
+}
+
+function jiranode() {
+    local node status_filter
+    if [[ ${1?} == '-a' ]]; then
+        node="${2?}"
+    else
+        status_filter='%20AND%20statusCategory%20!%3D%20Done'
+        node="${1}"
+    fi
+
+    local jql="(text%20~%20%22${node}%22%20OR%20summary%20~%20%22${node}%22)${status_filter}"
+
+    open "${JIRA_URL}/issues/?jql=${jql}"
+}
+
+## Kernel
+
+# kernel-changelog 5.4 27-100 cgroup
+#
+# Find changes in kernel changelogs (with caching!)
+function kernel-changelog() {
+    local cache_dir="${HOME}/.kernel-changelogs"
+    if [[ ! -d "$cache_dir" ]]; then
+        mkdir "$cache_dir"
+    fi
+
+    local major="$1"
+    shift
+    local minor="$1"
+    shift
+
+    local minor_min minor_max
+    if [[ "$minor" == *-* ]]; then
+        minor_a="${minor##*-}"
+        minor_b="${minor%%-*}"
+        minor_min=$(( minor_a < minor_b ? minor_a : minor_b ))
+        minor_max=$(( minor_a > minor_b ? minor_a : minor_b ))
+    else
+        minor_min=0
+        minor_max="$minor"
+    fi
+
+    local url_version
+    case "$major" in
+        4.* ) url_version="v4.x" ;;
+        5.* ) url_version="v5.x" ;;
+          * )
+            echo "Invalid major version '${major}'." >&2
+            return 1
+            ;;
+    esac
+
+    for i in $(seq $minor_max -1 $minor_min); do
+        local changelog="ChangeLog-${major}.${i}"
+
+        if [[ ! -f "${cache_dir}/${changelog}" ]]; then
+            if ! curl --fail -s "https://cdn.kernel.org/pub/linux/kernel/${url_version}/${changelog}" >"${cache_dir}/${changelog}"; then
+                rm -f "${cache_dir}/${changelog}"
+            fi
+        fi
+
+        echo "${major}.${i}"
+        if [[ -f "${cache_dir}/${changelog}" ]]; then
+            grep -F -i "$*" "${cache_dir}/${changelog}"
+        fi
+    done
+}
+
+## Networking
+
+# Converts a correct MAC address to/from Cisco-format MAC.
+function cmac() {
+    for mac in "$@"; do
+        mac="${mac,,}"     # Lowercase
+        mac="${mac//-/:}"  # Normalize - to :
+        if [[ $mac =~ ^([0-9a-f]{2}:){5}[0-9a-f]{2}$ ]]; then
+            sed 's/\://;s/\:/./;s/\://;s/\:/./;s/\://' <<< "$mac"
+        elif [[ "$mac" =~ ^([0-9a-f]{4}.){2}[0-9a-f]{4} ]]; then
+            sed 's/\.//g;s/\(..\)/\1:/g;s/:$//' <<< "$mac"
+        else
+            echo "Malformed MAC '${mac}'." >&2
+            return 1
+        fi
+    done
+}
+
+
+# create generic parallel jobs function
+function parallelize() {
+    local max_parallel=5
+
+    date
+    for id in "$@"; do
+        { (generic_function) & } 2>/dev/null
+
+        # Allow only to execute $N jobs in parallel.
+        if [[ $(jobs -r -p | wc -l) -gt "$max_parallel" ]]; then
+            # Wait only for the first job.
+            wait -n 2>/dev/null
+        fi
+    done
+
+    wait 2>/dev/null
+}
+
+## Random
+
+function timer() {
+    local date1
+    date1=$(date +%s)
+    while true; do
+        echo -ne "$(date -u --date @$(($(date "+%s") - date1)) +%H:%M:%S)\r";
+    done
+}
+
+# uuid [count]
+#
+# Generate type 4 (random) UUID, or [count] type 4 UUIDs.
+function uuid()
+{
+    local count=1
+    if [[ -n "$1" ]]; then
+        if [[ "$1" =~ [^0-9] ]]; then
+            echo "Usage: ${FUNCNAME[0]} [count]" >&2
+            return 1
+        fi
+
+        count="$1"
+    fi
+
+    python -c 'import uuid; print("\n".join([str(uuid.uuid4()).upper() for x in range('"$count"')]))'
+}
+
+function prompt_yn()
+{
+    local prompt="${1:-"Continue?"}"
+    local default="${2:-"Y"}"
+    local choices
+    local input
+
+    if [[ "$default" = [Nn] ]]; then
+        choices="[y/N]"
+    elif [[ "$default" = [Yy] ]]; then
+        choices="[Y/n]"
+    else
+        choices="[y/n]"
+    fi
+
+    while :; do
+        read -r -p "${prompt} ${choices}: " input
+        input="${input:-$default}"
+
+        case "$input" in
+            [Yy]) return 0 ;;
+            [Nn]) return 1 ;;
+            *) echo "Please answer yes or no." ;;
+        esac
+    done
+}
+
+
+
+
+# Fixes a cert that doesn't contain newlines and isn't formatted properly.
+function fix_cert() {
+    tr -d "\n\r" | \
+        sed -e 's@N CERTIFICATE-----@N CERTIFICATE-----\n@g' \
+            -e 's@-----END@\n-----END@g' | \
+        { cat ; echo ; } | \
+        fold -w 64
+}
+
+
+
+# Export functions to subshells
+declare -gxf hexToInt
+declare -gxf 6to4
+declare -gxf maskLen
+declare -gxf intToIp
+declare -gxf test_connectivity_extended
+declare -gxf test_connectivity

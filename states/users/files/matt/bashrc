@@ -1,4 +1,12 @@
-# .bashrc
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 # sourcing globally from /etc/profile.d/proxy.sh 
 #if [ -f ${HOME}/.proxy.sh ]; then
@@ -10,13 +18,25 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# What does this do?
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
 # User Exports
 
 # Use Vagrant Experimental features for trigger dependencies
-export VAGRANT_EXPERIMENTAL="0"
+export VAGRANT_EXPERIMENTAL="1"
 export VAGRANT_DEFAULT_PROVIDER=libvirt
 
 # GPG_TTY for signing git commits
@@ -60,7 +80,6 @@ fi
 if [ -f ${HOME}/.bash_aliases ]; then
     . ${HOME}/.bash_aliases
 fi
-alias qemacs="emacs -nw -q"
 
 ## https://github.com/magicmonty/bash-git-prompt
 GIT_PROMPT_SH="${HOME}/git/bash-git-prompt/gitprompt.sh"

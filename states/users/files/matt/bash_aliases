@@ -1,0 +1,77 @@
+# time aliases
+alias utc='date -u'
+alias est='TZ=US/Eastern date'
+alias cst='TZ=US/Central date'
+alias mst='TZ=US/Mountain date'
+alias pst='TZ=US/Pacific date'
+alias edt=est
+alias cdt=cst
+alias mdt=mst
+alias pdt=pst
+
+# sourcing aliases
+alias sz='source ~/.bashrc'
+alias ez='emacs ~/.bashrc'
+alias sb=sz
+alias eb=ez
+
+alias vi=vim
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias bogus='ls -rltah --color=auto'
+
+alias qemacs="emacs -nw -q"
+alias pss='python -m SimpleHTTPServer 8000'
+alias ppxml='python -c "import sys, xml.dom.minidom; print xml.dom.minidom.parseString(sys.stdin.read()).toprettyxml()"'
+alias pp="jq '.'"
+
+
+alias less="less -R"
+
+export LESSOPEN="| $(which highlight) %s --out-format xterm256 -l --force -s zmrok --no-trailing-nl"
+export LESS=" -R"
+alias less='less -m -N -g -i -J --line-numbers --underline-special'
+alias more='less'
+
+# Use "highlight" in place of "cat"
+alias cat="highlight $1 --out-format xterm256 -l --force -s zmrok --no-trailing-nl"
+
+###############################################
+###     Unused, for prosterity sake only   ####
+###############################################
+#alias BIGN='git checkout master; git fetch --prune; git pull ; git checkout pre-production; git pull; git merge --no-ff master; git push origin pre-production; git checkout production ; git pull; git merge --no-ff master; git push origin production ; git checkout master'
+# protected pillar encrypt / decrypt
+#alias G="gpg --trust-model always --yes --homedir ~/.gnupg/ --armor --encrypt -r 'classic saltmaster' | sed -e 's/^/     /g'"
+#alias Gd='  gpg --homedir ~/.gnupg/ --armor --decrypt -r "classic saltmaster" '
+
+# xrdb -merge ~/.Xresources
+# alias less='less -m -N -g -i -J --underline-special --SILENT'
+#alias snx='~/bin/syncscripts.sh'
+#alias ls='ls -hAGFp'
+
+
+# alias emax="emacsclient -t"                      # used to be "emacs -nw"
+# alias semac="sudo emacsclient -t"                # used to be "sudo emacs -nw"
+# alias emacsc="emacsclient -c -a emacs"           # new - opens the GUI with alternate non-daemon
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# alias urxvt='nohup urxvt &'
+# alias rxvt=urxvtc
+# alias term=urxvtc
+# alias emacs='emacs -nw'

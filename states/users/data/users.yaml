@@ -6,9 +6,14 @@ users:
       - ms-python.vscode-pylance
     vscode_settings: True
     custom_bashrc: True
-    custom_aliases: False
-    custom_profile: False
-    custom_emacs: False
+    custom_aliases: True
+    custom_profile: True
+    custom_functions: True
+    custom_emacs: True
+    git_repos_https:
+      - https://github.com/kettlewell/emacs.d.git
+    git_repos_ssh:
+      - git@github.com:kettlewell/emacs.d.git
 
   jen:
     vscode_extensions:

@@ -1,6 +1,5 @@
 include:
   - users.create-users
-  - vscode.create-dir
 
 {% import_yaml 'users/data/users.yaml' as users_file %}
 {% for user, userattr in users_file['users'].items() %}
@@ -11,7 +10,7 @@ include:
   file.managed:
     - require:
       - sls: users.create-users
-    - source: salt://users/files/{{custom_bashrc}}/bashrc
+    - source: salt://users/files/{{user}}/bashrc
     - user: {{user}}
     - group: {{user}}
     - mode: 644
