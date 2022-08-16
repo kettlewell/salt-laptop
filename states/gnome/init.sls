@@ -7,7 +7,7 @@ include:
 {% import_yaml 'users/data/users.yaml' as users_file %}
 {% for user, userattr in users_file['users'].items() %}
 {% if userattr.gnome_launcher_apps is defined and userattr.gnome_launcher_apps %}
-{% set gnome_launcher_apps = userattr.gnome_launcher_apps | join(', ')| list %}
+{% set gnome_launcher_apps = userattr.gnome_launcher_apps | join(', ') %}
 
 
 # Make the default button layout a lot less stupid
