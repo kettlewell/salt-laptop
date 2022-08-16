@@ -12,8 +12,8 @@ users:
     custom_functions: True
     custom_emacs: True
     git_repos_https:
-      - https://github.com/kettlewell/emacs.d.git
-          emacs.d
+      - url: https://github.com/kettlewell
+        dir: emacs.d
       
     git_repos_ssh:
       - git@github.com:kettlewell/emacs.d.git
