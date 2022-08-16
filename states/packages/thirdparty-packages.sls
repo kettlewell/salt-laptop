@@ -10,7 +10,8 @@
 #    - sources:
 #      - https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 
-pkg.installed:
+google_chrome_stable:
+  pkg.installed:
     - sources:
       - google-chrome-stable: https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
     - skip_verify: false
