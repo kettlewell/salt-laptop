@@ -4,6 +4,7 @@ include:
   - vscode.create-dir
   - vscode.install-extensions
   - vscode.settings
+  - vscode.keybindings
 
 # install keybindings.json per user?
 

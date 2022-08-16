@@ -5,6 +5,7 @@ users:
       - ms-python.python
       - ms-python.vscode-pylance
     vscode_settings: True
+    vscode_keyboard_bindings: True
     custom_bashrc: True
     custom_aliases: True
     custom_profile: True
