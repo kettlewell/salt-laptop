@@ -16,7 +16,7 @@ include:
     - makedirs: True
 
 
-{% for http_repo_name,http_repo_dir in userattr.['git_repos_https'].items() %}
+{% for http_repo_name,http_repo_dir in userattr['git_repos_https'].items() %}
 git_clone_{{http_repo_name}}:
   git.cloned:
     - name: {{ http_repo_name}}
