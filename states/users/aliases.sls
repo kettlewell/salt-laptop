@@ -4,9 +4,9 @@ include:
 {% import_yaml 'users/data/users.yaml' as users_file %}
 {% for user, userattr in users_file['users'].items() %}
 
-{% set custom_aliases = user  if userattr.custom_aliases is defined and userattr.custom_aliases else 'default' %}
+{% set dir_name = user  if userattr.custom_aliases is defined and userattr.custom_aliases else 'default' %}
 
-{% if user != 'default' %}
+{% if dir_name != 'default' %}
 
 /home/{{ user }}/.bash_aliases:
   file.managed:

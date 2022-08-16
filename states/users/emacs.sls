@@ -4,9 +4,9 @@ include:
 {% import_yaml 'users/data/users.yaml' as users_file %}
 {% for user, userattr in users_file['users'].items() %}
 
-{% set custom_emacs = user  if userattr.custom_emacs is defined and userattr.custom_emacs else 'default' %}
+{% set dir_name = user  if userattr.custom_emacs is defined and userattr.custom_emacs else 'default' %}
 
-{% if user != 'default' %}
+{% if dir_name != 'default' %}
 /home/{{ user }}/.emacs.d:
   file.directory:
     - requires:

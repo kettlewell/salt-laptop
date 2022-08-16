@@ -4,9 +4,9 @@ include:
 {% import_yaml 'users/data/users.yaml' as users_file %}
 {% for user, userattr in users_file['users'].items() %}
 
-{% set custom_functions = user  if userattr.custom_functions is defined and userattr.custom_functions else 'default' %}
+{% set dir_name = user  if userattr.custom_functions is defined and userattr.custom_functions else 'default' %}
 
-{% if user != 'default' %}
+{% if dir_name != 'default' %}
 
 /home/{{ user }}/.bash_functions:
   file.managed:
