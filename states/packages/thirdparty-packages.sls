@@ -1,3 +1,9 @@
+# third party packages
+
+# google chrome RPM installs three things:
+# 1) signing keys
+# 2) repository files
+# 3) binary packages
 google_chrome_stable:
   pkg.installed:
     - pkg_verify: True
