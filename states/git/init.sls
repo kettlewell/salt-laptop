@@ -8,7 +8,7 @@ include:
 
 /home/{{ user }}/git:
   file.directory:
-    - requires:
+    - require:
       - sls: users.create-users
     - user: {{ user }}
     - group: {{ user }}
@@ -21,7 +21,7 @@ git_clone_{{http_repo}}:
   git.cloned:
     - name: {{ http_repo}}
     - target: /home/{{ user }}/git
-    - requires:
+    - require:
       - sls: users.create-users
       - file: /home/{{ user }}/git
     - user: {{user}}
