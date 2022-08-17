@@ -100,7 +100,7 @@ system_packages:
       - whois
       - wireshark
       - wireshark
-      - yubikey-manager
+#      - yubikey-manager
       - zip
 #      - zoom
 
