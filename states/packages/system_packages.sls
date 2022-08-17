@@ -84,6 +84,7 @@ system_packages:
       - pinentry-tty
       - postgresql
       - procps-ng
+      - rng-tools
       - rsync
 #      - slack-desktop
       - socat
