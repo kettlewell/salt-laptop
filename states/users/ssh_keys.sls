@@ -12,6 +12,8 @@ include:
     - require:
       - user: {{ user }}
 
+{%   if userattr.ssh_keys is defined and userattr.ssh_keys %}
+
 {{ user }}-ssh_key:
   file.managed:
     - name: /home/{{ user }}/.ssh/authorized_keys
@@ -25,4 +27,5 @@ include:
       - user: {{ user }}
       - file: {{ user }}-ssh_dir
 
+{% endif %}
 {% endfor %}
