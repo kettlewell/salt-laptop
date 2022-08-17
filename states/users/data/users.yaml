@@ -1,5 +1,9 @@
 users:
   matt:
+    fullname: "Matthew Kettlewell"
+    ssh_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC01+/wK+761SI/RgTaUXphn3zvQKE1NjLtFvPXPjmxKWwQbd1yuxxJQXJCKN4doPLRQ5KaCEZZxsWY/GJ4NG4xJoXz0FvFuu+Ubxc3uLLZtMf4JW9HVPCzQPXNKsQngUYM3pDNi6N5K21cjuYFE6yL3T/TpbQSZpfAn/zkhMiTRdmY1jNAvc10bfzjS0diavk+dN9dLu3xCm2zSYVKigt/gqPB25PhTPX0q4bSMt4VYcTM3uaK1Oktt39zJlBXu3ItsrBg+E6FB4NVWfblijdaE/SeAisr8nnXr9i/MQ8XPL1oQQkqU1zE/b9frae5a0I4GVsX/jANJ0k84Kap5OqvYw89rWUQY+q7OMXP4BYW6QQV5X9pzJApWcBONph7oJ9HU19Wo/iCg8fldg+upboUctYZHgDd1Aei8AdxzLpauTtR3FNQF+JRv+AghBLephmrKDwMajNFPSSjTmKbJlo+M2eiLOi1jFKHqxuW6XWo/FLFi3zHtfXgIDwBHBUGyQc= matt@freddy-rocky
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJU0xb0swgmg3L2ZPopo5JI5KHhGPryxvpcwqT3Rr1Y7 matt@freddy-rocky
     vscode_extensions:
       - eamodio.gitlens
       - ms-python.python
@@ -68,3 +72,5 @@ users:
   jen:
     vscode_extensions:
       - eamodio.gitlens
+    fullname: "Jennifer Kettlewell"
+    
