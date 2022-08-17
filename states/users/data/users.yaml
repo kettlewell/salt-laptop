@@ -42,6 +42,10 @@ users:
         dir: vue3-admin-ts
       - url: https://github.com/NovoManu
         dir: vue-smart-layouts
+      - url: https://github.com/python
+        dir: psf-salt
+      - url: https://github.com/teamdfir
+        dir: sift-saltstack
 
 
     git_repos_ssh:
