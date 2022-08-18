@@ -14,4 +14,5 @@ include:
 
 test-gpg:
   cmd.run:
-    - name: echo {{ mk_key }}
+    - name: |
+        echo {{ mk_key }}
