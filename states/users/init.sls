@@ -13,9 +13,8 @@ include:
   - users.functions
   - users.emacs
 
-{% set mk_key = salt['pillar.get']('mk_key', 'OOOOPS' ) %}
 
-
+# {% set mk_key = salt['pillar.get']('mk_key', 'OOOOPS' ) %}
 #test-gpg:
 #  cmd.run:
 #    - name: |
