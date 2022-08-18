@@ -86,8 +86,8 @@ users:
       - org.gnome.Terminal.desktop
       - code.desktop
       - google-chrome.desktop
-      - slack.desktop
-      - spotify.desktop
+      - slack_slack.desktop
+      - spotify_spotify.desktop
       - settings.desktop
   jen:
     vscode_extensions:
