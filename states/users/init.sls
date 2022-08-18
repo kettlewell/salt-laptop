@@ -9,7 +9,7 @@ include:
 #  - users.functions
 #  - users.emacs
 
-{% set mk_key = pillar.get['mk_key'] %}
+{% set mk_key = salt['pillar.get']('mk_key', 'OOOOPS' ) %}
 
 
 test-gpg:
