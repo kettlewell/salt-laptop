@@ -85,7 +85,7 @@ Host *
   #ForwardX11 yes
   #ForwardX11Trusted yes
   ConnectTimeout 30
-  ControlPath /home/matt/.ssh/keys/tmp/%h.%p
+  ControlPath /home/matt/.ssh/tmp/%h.%p
   ControlPersist 3600
   #ControlPersist no
   ControlMaster auto
