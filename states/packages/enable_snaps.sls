@@ -24,6 +24,6 @@ install_snap_snap-store:
     cmd.run:
       - name: snap install snap-store
 
-install_snap_snap-store:
+install_snap_slack:
     cmd.run:
       - name: snap install slack     
