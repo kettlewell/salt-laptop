@@ -12,6 +12,15 @@ include:
     - require:
       - user: {{ user }}
 
+{{ user }}-ssh_keys_dir:
+  file.directory:
+    - name: /home/{{ user }}/.ssh/keys
+    - user: {{ user }}
+    - mode: "0700"
+    - require:
+      - user: {{ user }}
+      - file: {{ user }}-ssh_dir
+
 {%   if userattr.ssh_keys is defined and userattr.ssh_keys %}
 
 {{ user }}-ssh_key:
@@ -35,7 +44,7 @@ include:
 
 {{ user }}-ssh_key_{{ ssh_key }}:
   file.managed:
-    - name: /home/{{ user }}/.ssh/{{ ssh_key }}
+    - name: /home/{{ user }}/.ssh/keys/{{ ssh_key }}
     - user: {{ user }}
     - mode: "0600"
     - attrs: a
