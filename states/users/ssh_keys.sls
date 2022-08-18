@@ -48,7 +48,7 @@ include:
     - user: {{ user }}
     - mode: "0600"
     - attrs: a
-    - contents_pillar: {{ ssh_key }} 
+    - contents_pillar: ssh_keys_encrypted:{{ ssh_key }} 
     - require:
       - user: {{ user }}
       - file: {{ user }}-ssh_dir

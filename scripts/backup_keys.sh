@@ -6,6 +6,7 @@
 # NOTE: the master keys should NEVER be committed to the repository
 # NOTE2: the master keys should be stored in at least 2 locations
 
+
 # Assume that the saltmaster gpg directory is in a static location.
 GPG_DIR="${HOME}/gpgkeys"
 GPG_BIN=$(type -P gpg)
@@ -48,4 +49,3 @@ mkdir -p ${GPG_TMP_DIR}
  ${GPG} -a --export-secret-keys > ${GPG_TMP_DIR}/myprivatekeys.asc
 
  ${GPG} --export-ownertrust > ${GPG_TMP_DIR}/otrust.txt
- 

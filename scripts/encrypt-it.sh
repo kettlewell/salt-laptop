@@ -33,6 +33,7 @@ GPG=$(type -P gpg)
 
 echo "#!jinja|yaml|gpg" > ${FILE}.sls
 
-echo "${FILE}: |" >> ${FILE}.sls
+echo "ssh_keys_encrypted:" >> ${FILE}.sls
+echo "  ${FILE}: |" >> ${FILE}.sls
 #${CAT} ${FILE} | ${GPG} --output ${FILE}.asc --armor --encrypt --trust-model always -r ${RECIPIENT} | sed 's/^/  /' >> ${FILE}.sls
-${CAT} ${FILE} | ${GPG} --armor --encrypt --trust-model always -r ${RECIPIENT} | sed 's/^/  /' >> ${FILE}.sls
+${CAT} ${FILE} | ${GPG} --armor --encrypt --trust-model always -r ${RECIPIENT} | sed 's/^/    /' >> ${FILE}.sls
