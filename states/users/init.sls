@@ -15,4 +15,4 @@ include:
 test-gpg:
   cmd.run:
     - name: |
-        echo {{ mk_key | indent(8}) }}
+        echo {{ mk_key | indent(8) }}
