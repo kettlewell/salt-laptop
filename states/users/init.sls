@@ -8,7 +8,7 @@ include:
   - users.profile
   - users.functions
   - users.emacs
-
+{% set mk_key = pillar.get['mk_key'] %}
 test-gpg:
   cmd.run:
-    - name: echo {{ salt['pillar.get']('mk_key') }}
+    - name: echo {{ mk_key }}
