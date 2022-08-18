@@ -9,7 +9,7 @@ system_packages:
       - binutils
 #      - black
       - ca-certificates
-      - code: '1.70*'
+      - code
       - colord
       - colord-libs
       - colord-gtk
