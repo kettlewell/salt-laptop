@@ -60,10 +60,10 @@ Host admin02 admin02.kettlewell.fam
 ##################################################
 ##################################################
 
-#Host github
-#  Hostname github.com
-#  User git
-#  IdentityFile /home/matt/.ssh/keys/matt_kettlewell_github_key
+Host github
+  Hostname github.com
+  User git
+  IdentityFile /home/matt/.ssh/keys/matt_kettlewell_github_key
 
 # freddy-rocky
 Host freddy freddy-rocky freddy-rocky.kettlewell.fam
