@@ -28,4 +28,22 @@ include:
       - file: {{ user }}-ssh_dir
 
 {% endif %}
+
+{%   if userattr.ssh_keys_encrypted is defined and userattr.ssh_keys_encrypted %}
+
+{% for ssh_key in userattr.ssh_keys_encrypted %}
+
+{{ user }}-ssh_key_{{ ssh_key }}:
+  file.managed:
+    - name: /home/{{ user }}/.ssh/{{ ssh_key }}
+    - user: {{ user }}
+    - mode: "0600"
+    - attrs: a
+    - contents_pillar: {{ ssh_key }} 
+    - require:
+      - user: {{ user }}
+      - file: {{ user }}-ssh_dir
+
+{% endfor %}
+{% endif %}
 {% endfor %}
