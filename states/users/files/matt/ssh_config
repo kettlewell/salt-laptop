@@ -22,14 +22,14 @@ CanonicalizeFallbackLocal yes
 #Host gomer gomer.kettlewell.fam
 #  Hostname 10.99.2.60
 #  User matt
-#  IdentityFile /home/matt/.ssh/matt_gomer.key
+#  IdentityFile /home/matt/.ssh/matt_gomer_key
 #  ForwardAgent yes
 #  IdentitiesOnly yes
 
 Host admin01 admin01.kettlewell.fam
   Hostname 10.99.1.2
   User matt
-  IdentityFile /home/matt/.ssh/matt_gomer.key
+  IdentityFile /home/matt/.ssh/matt_gomer_key
   ForwardAgent yes
   IdentitiesOnly yes
   #ForwardX11 yes
@@ -38,14 +38,14 @@ Host admin01 admin01.kettlewell.fam
 Host admin02 admin02.kettlewell.fam
   Hostname 10.99.1.3
   User matt
-  IdentityFile /home/matt/.ssh/matt_gomer.key
+  IdentityFile /home/matt/.ssh/matt_gomer_key
   ForwardAgent yes
   IdentitiesOnly yes
 
 #Host firewall firewall.kettlewell.fam
 #  Hostname 10.99.0.1
 #  User matt
-#  IdentityFile /home/matt/.ssh/matt_gomer.key
+#  IdentityFile /home/matt/.ssh/matt_gomer_key
 #  ForwardAgent yes
 #  IdentitiesOnly yes
 
@@ -63,8 +63,6 @@ Host admin02 admin02.kettlewell.fam
 #Host github
 #  Hostname github.com
 #  User git
-#  #  IdentityFile /home/matt/.ssh/ns-git.key
-#  #  IdentityFile /home/matt/.ssh/mac-github.key
 #  IdentityFile /home/matt/.ssh/matt_kettlewell_github_key
 
 # freddy-rocky
