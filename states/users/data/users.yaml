@@ -15,6 +15,7 @@ users:
     custom_profile: True
     custom_functions: True
     custom_emacs: True
+    custom_ssh_config: True
     git_repos_https:
       - url: https://github.com/kettlewell
         dir: emacs.d
