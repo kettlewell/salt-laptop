@@ -1,8 +1,6 @@
 Things to add
-* script to backup all private keys
 * script to push keys onto yubi
 * global git config files
-* slack
 * go
 * docker
 * bookmarks
@@ -23,7 +21,9 @@ Things to Fix:
 Done-ish:
 * dotfiles
 * SSH Keys
-
+* script to backup all private keys
+* slack
+* snaps
 
 TODO:
 in users.init add a new state ( users.pull_dotfiles )

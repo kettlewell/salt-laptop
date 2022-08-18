@@ -25,7 +25,6 @@ include:
 {% for repo in http_repo %}
 {% set git_url = repo.url + '/' + repo.dir + '.git' %}
 
-
 git_clone_{{ git_url }}:
   git.cloned:
     - name: {{ git_url }}
@@ -37,8 +36,6 @@ git_clone_{{ git_url }}:
 
 {% endfor %}
 {% endif %}
-
-
 
 {% if (userattr.git_repos_ssh is defined and userattr.git_repos_ssh) %}
 {% set ssh_repo = userattr.git_repos_ssh %}
@@ -46,7 +43,6 @@ git_clone_{{ git_url }}:
 {% for repo in ssh_repo %}
 {% set git_url = repo.url + '/' + repo.dir + '.git' %}
 
-
 git_clone_{{ git_url }}:
   git.cloned:
     - name: {{ git_url }}
@@ -59,10 +55,32 @@ git_clone_{{ git_url }}:
 {% endfor %}
 {% endif %}
 
+{% set user_name = user  if userattr.custom_gitignore is defined and userattr.custom_gitignore else 'default' %}
 
+{% if user_name != 'default' %}
 
+/home/{{ user }}/.gitignore_global:
+  file.managed:
+    - require:
+      - sls: users.create-users
+    - source: salt://users/files/{{user}}/gitignore
+    - user: {{user}}
+    - group: {{user}}
+    - mode: 644
 
+{% endif %}
 
+{% set user_name = user  if userattr.custom_gitconfig is defined and userattr.custom_gitconfig else 'default' %}
+{% if user_name != 'default' %}
 
+/home/{{ user }}/.gitconfig:
+  file.managed:
+    - require:
+      - sls: users.create-users
+    - source: salt://users/files/{{user}}/gitconfig
+    - user: {{user}}
+    - group: {{user}}
+    - mode: 644
+{% endif %}
 
 {% endfor %}
