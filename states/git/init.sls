@@ -5,8 +5,8 @@ include:
 {% import_yaml 'users/data/users.yaml' as users_file %}
 {% for user, userattr in users_file['users'].items() %}
 
-{% if (userattr.git_repos_https is defined and userattr.git_repos_https) or \
-      (userattr.git_repos_ssh is defined and userattr.git_repos_ssh)   %}
+{% if ( (userattr.git_repos_https is defined and userattr.git_repos_https) or 
+      (userattr.git_repos_ssh is defined and userattr.git_repos_ssh) )  %}
 
 /home/{{ user }}/git:
   file.directory:
