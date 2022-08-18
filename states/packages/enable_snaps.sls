@@ -27,3 +27,7 @@ install_snap_snap-store:
 install_snap_slack:
     cmd.run:
       - name: snap install slack     
+
+install_snap_spotify:
+    cmd.run:
+      - name: snap install spotify           

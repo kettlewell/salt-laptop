@@ -142,7 +142,7 @@ export PYENV_ROOT=${HOME}/.pyenv
 
 export PATH=${PYENV_ROOT}/bin:${HOME}/.poetry/bin:${PATH}:/usr/share/bcc/tools/:/usr/share/bpftools/tools/:${GOPATH}/bin
 
-
+export PATH="/snap/bin:$PATH"
 # de-duplicate the PATH
 
 export PATH=`printf %s "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
