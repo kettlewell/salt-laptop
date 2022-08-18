@@ -87,6 +87,7 @@ system_packages:
       - rng-tools
       - rsync
 #      - slack-desktop
+      - snapd
       - socat
 #      - sqlite3
       - strace

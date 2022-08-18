@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# reference: https://access.redhat.com/solutions/2115511
 # backup the saltmaster private key as part of the 
 # maintenance process for later recoverablity, if ever needed.
 
@@ -12,6 +13,9 @@ GPG_DIR="${HOME}/gpgkeys"
 GPG_BIN=$(type -P gpg)
 GPG="${GPG_BIN} --homedir ${GPG_DIR}"
 GPG_TMP_DIR=${GPG_DIR}/tmp
+BACKUP_DIR=${HOME}/backups
+mkdir -p ${BACKUP_DIR}
+chmod 700 ${BACKUP_DIR}
 
 usage () {
     echo "usage"
@@ -49,3 +53,14 @@ mkdir -p ${GPG_TMP_DIR}
  ${GPG} -a --export-secret-keys > ${GPG_TMP_DIR}/myprivatekeys.asc
 
  ${GPG} --export-ownertrust > ${GPG_TMP_DIR}/otrust.txt
+
+sudo salt-call pillar.get ssh_keys_encrypted >  ${GPG_TMP_DIR}/ssh_keys.txt
+
+filename="${BACKUP_DIR}/keys-$(date '+%Y-%m-%d-%H-%M-%S').tar.xz"
+
+XZ_OPT='-4' tar -Jcvf ${filename} ${GPG_DIR}
+
+chmod 400 ${filename}
+
+printf "\nbackup complete.\n"
+printf "file saved to ${filename}\n\n"
