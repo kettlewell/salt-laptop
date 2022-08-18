@@ -20,3 +20,10 @@ snapd_symlink:
       - sls: packages.system_packages
 {% endif %}
 
+install_snap_snap-store:
+    cmd.run:
+      - name: snap install snap-store
+
+install_snap_snap-store:
+    cmd.run:
+      - name: snap install slack     
