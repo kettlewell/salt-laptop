@@ -10,6 +10,6 @@ include:
   - users.functions
   - users.emacs
 
-test-gpg: 
+test-gpg:
   cmd.run:
     - name: echo {{ salt['pillar.get']('mk_key') }}
