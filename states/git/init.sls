@@ -63,7 +63,7 @@ git_clone_{{ git_url }}:
   file.managed:
     - require:
       - sls: users.create-users
-    - source: salt://users/files/{{user}}/gitignore
+    - source: salt://users/files/{{user}}/gitignore_global
     - user: {{user}}
     - group: {{user}}
     - mode: 644
