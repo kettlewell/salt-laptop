@@ -83,11 +83,12 @@ users:
       - url: git@github.com:kettlewell
         dir: me
     gnome_launcher_apps:
-      - firefox.desktop
       - org.gnome.Terminal.desktop
       - code.desktop
       - google-chrome.desktop
       - slack.desktop
+      - spotify.desktop
+      - settings.desktop
   jen:
     vscode_extensions:
       - eamodio.gitlens
