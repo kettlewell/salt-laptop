@@ -81,6 +81,7 @@ users:
       - url: https://github.com/femnad/anr.git
       - url: https://github.com/Everbridge/generate-secure-pillar.git
       - url: https://github.com/immobiliare/peephole.git
+      - url: https://github.com/jackscott/golang-formula.git
 
     git_repos_ssh:
       - url: admin01.kettlewell.fam:/data/git-bare/snips.git
