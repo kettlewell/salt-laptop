@@ -1,5 +1,4 @@
 Things to add
-* go
 * docker
 * bin/scripts
 * node
@@ -14,6 +13,11 @@ optional / later:
 * script to push keys onto yubi
 * bookmarks
 * s3 backups
+* virtualbox
+* pgdg
+* pgadmin4
+* llvm
+* helm ?
 
 Things to Fix:
 * vscode install extensions always show a change, even when nothing has changed
@@ -34,3 +38,4 @@ Done-ish:
 * zoom
 * .tmux.conf
 * .Xresources
+* go
