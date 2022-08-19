@@ -1,10 +1,9 @@
 Things to add
-* zoom
 * go
 * docker
 * bin/scripts
 * .tmux.conf
-* .Xdefaults
+* .Xresources
 
 
 optional / later:
@@ -33,3 +32,4 @@ Done-ish:
 * slack
 * snaps
 * global git config files
+* zoom
