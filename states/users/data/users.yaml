@@ -36,6 +36,9 @@ users:
     custom_ssh_config: True
     custom_gitignore: True
     custom_gitconfig: True
+    custom_tmux: True
+    custom_xresources: True
+    custom_xinitrc: True
     git_repos_https:
       - url: https://github.com/kettlewell/emacs.d.git
         dir: kettlewell-emacs.d
