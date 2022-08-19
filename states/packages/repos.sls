@@ -16,5 +16,5 @@ vscode_repo:
 docker_repo:
   cmd.run:
     - name: |
-      yum install -y yum-utils
-      yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo    
+        yum install -y yum-utils
+        yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo    
