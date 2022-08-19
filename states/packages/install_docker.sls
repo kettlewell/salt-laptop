@@ -5,6 +5,7 @@ docker:
       - docker-ce
       - docker-ce-cli
       - containerd.io
+      - docker-compose-plugin
     - require:
       - cmd: docker_repo
     - aggregate: False
