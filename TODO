@@ -1,22 +1,30 @@
 Things to add
-* script to push keys onto yubi
+* zoom
 * go
 * docker
-* bookmarks
 * bin/scripts
 * .tmux.conf
 * .Xdefaults
-* s3 backups
 
 
-optional:
+optional / later:
 
+* sysctl
+* flatpak
 * prometheus
 * databases
+* script to push keys onto yubi
+* bookmarks
+* s3 backups
 
 Things to Fix:
 * vscode install extensions always show a change, even when nothing has changed
 * gnome favorites icons
+
+
+TODO:
+in users.init add a new state ( users.pull_dotfiles )
+and use the dotfiles in there for bashrc, aliases, functions, etc ... or just pull them all from dot files into here... actually, that might be the better way to keep them all in once place... but also makes it more tightly coupled to salt, and less indendent... so keep it in dotfiles, and pull it into salt via git and link files
 
 Done-ish:
 * dotfiles
@@ -25,7 +33,3 @@ Done-ish:
 * slack
 * snaps
 * global git config files
-
-TODO:
-in users.init add a new state ( users.pull_dotfiles )
-and use the dotfiles in there for bashrc, aliases, functions, etc ... or just pull them all from dot files into here... actually, that might be the better way to keep them all in once place... but also makes it more tightly coupled to salt, and less indendent... so keep it in dotfiles, and pull it into salt via git and link files
