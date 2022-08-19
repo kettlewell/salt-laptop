@@ -9,7 +9,7 @@ docker:
       - cmd: docker_repo
     - aggregate: False
 
-  service.running:
-    - enable: True
-    - require:
-      - pkg: docker
+#  service.running:
+#    - enable: True
+#    - require:
+#      - pkg: docker
