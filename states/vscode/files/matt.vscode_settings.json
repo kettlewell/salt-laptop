@@ -1,4 +1,5 @@
 {
     "workbench.colorTheme": "Default Dark+",
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
+    "cmake.configureOnOpen": false
 }

@@ -23,12 +23,18 @@ include:
 {% set http_repo = userattr.git_repos_https %}
 
 {% for repo in http_repo %}
-{% set git_url = repo.url + '/' + repo.dir + '.git' %}
 
-git_clone_{{ git_url }}:
+{% if (repo.dir is defined and repo.dir) %}
+{% set repo_dir = repo.dir %}
+{% else %}
+{% set repo_dir = salt['file.basename'](repo.url) | replace(".git", "") %}
+{% endif %}
+
+
+git_clone_{{ repo.url }}:
   git.cloned:
-    - name: {{ git_url }}
-    - target: /home/{{ user }}/git/{{ repo.dir }}
+    - name: {{ repo.url }}
+    - target: /home/{{ user }}/git/{{ repo_dir }}
     - require:
       - sls: users.create-users
       - file: /home/{{ user }}/git
@@ -41,12 +47,16 @@ git_clone_{{ git_url }}:
 {% set ssh_repo = userattr.git_repos_ssh %}
 
 {% for repo in ssh_repo %}
-{% set git_url = repo.url + '/' + repo.dir + '.git' %}
+{% if (repo.dir is defined and repo.dir) %}
+{% set repo_dir = repo.dir %}
+{% else %}
+{% set repo_dir = salt['file.basename'](repo.url) | replace(".git", "") %}
+{% endif %}
 
-git_clone_{{ git_url }}:
+git_clone_{{ repo.url }}:
   git.cloned:
-    - name: {{ git_url }}
-    - target: /home/{{ user }}/git/{{ repo.dir }}
+    - name: {{ repo.url }}
+    - target: /home/{{ user }}/git/{{ repo_dir }}
     - require:
       - sls: users.create-users
       - file: /home/{{ user }}/git

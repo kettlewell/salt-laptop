@@ -1,0 +1,181 @@
+
+# Set Window Options
+#setw -g xterm-keys on
+setw -g pane-base-index 1     # make pane numbering consistent with windows
+#setw -g automatic-rename on   # rename window to reflect current program
+setw -q -g utf8 on
+setw -g monitor-activity off
+
+#setw -g clock-mode-colour colour5
+#setw -g mode-style 'fg-colour2 bg=colour18 bold'
+
+
+
+# Set Options
+set -g default-terminal "screen-256color" # colors!
+set -as terminal-features 'clipboard:mouse'
+set -as terminal-overrides 'rxvt-unicode-256color:Ms=\E]52;%p1%s;%p2%s\007'
+set -s escape-time 10                     # faster command sequences
+set -sg repeat-time 600                   # increase repeat timeout
+set -s focus-events on
+# set -g prefix2 C-a                        # GNU-Screen compatible prefix
+set -gu prefix2
+set -g prefix C-b
+set -q -g status-utf8 on                  # expect UTF-8 (tmux < 2.2)
+set -g history-limit 100000               # boost history
+set -g base-index 1                       # start windows numbering at 1
+set -g renumber-windows on                # renumber windows when a window is closed
+set -g set-titles on                      # set terminal title
+set -g display-panes-time 800             # slightly longer pane indicators display time
+set -g display-time 1000                  # slightly longer status messages display time
+set -g status-interval 10                 # redraw status line every 10 seconds
+set -g visual-silence off
+set -g monitor-activity off
+set -g visual-activity off
+set -g visual-bell off
+set -g bell-action none
+set -g mouse on                           # Enable mouse control
+set -g set-clipboard on
+set -g allow-rename off                   # don't rename windows automatically
+
+#set -g pane-border-style 'fg=colour19 bg=colour0'
+#set -g pane-active-border-style 'fg=colour9 bg=colour0'
+
+set -g status-position bottom
+set -g status-justify left
+set -g status-style 'bg=colour18 fg=colour137 dim'
+set -g status-left ''
+#set -g status-right '#[fg=colour233,bg=colour19] %d%m #[fg=colour233,bg=colour8] %H:%M:%S '
+set -g status-right-length 50
+set -g status-left-length 20
+
+set -g message-style 'fg=colour232 bg=colour16 bold'
+
+# Unbind ( why are these here? )
+unbind n
+unbind p
+unbind C-a
+
+# Bindings
+
+#bind C-a send-prefix -2
+#bind -n C-l send-keys C-l \; run 'sleep 0.1' \; clear-history
+
+bind C-c new-session
+bind C-f command-prompt -p find-session 'switch-client -t %%'
+
+bind - split-window -v
+bind _ split-window -h
+
+bind -r h select-pane -L  # move left
+bind -r j select-pane -D  # move down
+bind -r k select-pane -U  # move up
+bind -r l select-pane -R  # move right
+
+bind > swap-pane -D       # swap current pane with the next one
+bind < swap-pane -U       # swap current pane with the previous one
+
+bind -r H resize-pane -L 2
+bind -r J resize-pane -D 2
+bind -r K resize-pane -U 2
+bind -r L resize-pane -R 2
+
+bind -r C-h previous-window # select previous window
+bind -r C-l next-window     # select next window
+
+bind Tab last-window        # move to last active window
+
+#bind Enter copy-mode # enter copy mode
+#bind b list-buffers  # list paste buffers
+#bind p paste-buffer  # paste from the top paste buffer
+#bind P choose-buffer # choose which buffer to paste from
+
+bind r source-file ~/.tmux.conf \; display '~/.tmux.conf sourced'
+# copy to X11 clipboard
+#if -b 'command -v xsel > /dev/null 2>&1' 'bind y run -b "tmux save-buffer - | xsel -i -b"'
+#if -b '! command -v xsel > /dev/null 2>&1 && command -v xclip > /dev/null 2>&1' 'bind y run -b "tmux save-buffer - | xclip -i -selection clipboard >/dev/null 2>&1"'
+
+# used to send stty command to current pane with current pane dimensions
+unbind t
+bind t run 'tmux send-keys -l "$(tmux display -p "stty columns #{pane_width} rows #{pane_height}")"'
+
+
+# COLOR
+
+#### COLOUR (Solarized 256)
+
+# default statusbar colors
+set-option -g status-style fg=colour136,bg=colour235 #yellow and base02
+
+# default window title colors
+set-window-option -g window-status-style fg=colour244,bg=default #base0 and default
+#set-window-option -g window-status-style dim
+
+# active window title colors
+set-window-option -g window-status-current-style fg=colour166,bg=default #orange and default
+#set-window-option -g window-status-current-style bright
+
+# pane border
+set-option -g pane-border-style fg=colour235 #base02
+set-option -g pane-active-border-style fg=colour240 #base01
+
+# message text
+set-option -g message-style fg=colour166,bg=colour235 #orange and base02
+
+# pane number display
+set-option -g display-panes-active-colour colour33 #blue
+set-option -g display-panes-colour colour166 #orange
+
+# clock
+set-window-option -g clock-mode-colour colour64 #green
+
+# bell
+set-window-option -g window-status-bell-style fg=colour235,bg=colour160 #base02, red
+
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+#set -g @plugin 'tmux-plugins/tmux-sensible'
+#set -g @plugin 'tmux-plugins/tmux-pain-control'
+#set -g @plugin 'jaclu/tmux-menus'
+
+set -g @plugin 'tmux-plugins/tmux-yank'
+
+set -g @yank_selection 'primary' ## or 'secondary' or 'clipboard'
+set -g @yank_selection_mouse 'primary' ## or 'primary' or 'secondary'
+set -g @yank_action 'copy-pipe-no-clear' # or 'copy-pipe-cancel' for default
+set -g @yank_with_mouse off # or 'on'
+
+set -s copy-command 'xsel -i'
+
+#bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -sel clip -i'
+#bind -T root MouseUp2Pane paste
+
+
+bind -T copy-mode    C-c send -X copy-pipe-no-clear "xsel -i --clipboard"
+bind -T copy-mode-vi C-c send -X copy-pipe-no-clear "xsel -i --clipboard"
+
+
+#bind -T copy-mode    DoubleClick1Pane select-pane \; send -X select-word \; send -X copy-pipe-no-clear "xsel -i"
+#bind -T copy-mode-vi DoubleClick1Pane select-pane \; send -X select-word \; send -X copy-pipe-no-clear "xsel -i"
+
+#bind -n DoubleClick1Pane select-pane \; copy-mode -M \; send -X select-word \; send -X copy-pipe-no-clear "xsel -i"
+
+#bind -T copy-mode    TripleClick1Pane select-pane \; send -X select-line \; send -X copy-pipe-no-clear "xsel -i"
+#bind -T copy-mode-vi TripleClick1Pane select-pane \; send -X select-line \; send -X copy-pipe-no-clear "xsel -i"
+
+#bind -n TripleClick1Pane select-pane \; copy-mode -M \; send -X select-line \; send -X copy-pipe-no-clear "xsel -i"
+
+# bind -n MouseDown2Pane run "tmux set-buffer -b primary_selection \"$(xsel -o)\"; tmux paste-buffer -b primary_selection; tmux delete-buffer -b primary_selection"
+
+
+
+
+# Other examples:
+# set -g @plugin 'github_username/plugin_name'
+# set -g @plugin 'github_username/plugin_name#branch'
+# set -g @plugin 'git@github.com:user/plugin'
+# set -g @plugin 'git@bitbucket.com:user/plugin'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'

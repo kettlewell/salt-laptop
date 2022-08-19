@@ -1,0 +1,290 @@
+! If changing things in this file doesnt result in changes in your term you should run:
+! xrdb -load ~/.Xresources
+
+! if the terminal does not load this file, you may need to manually merge in the file with: 
+! xrdb -merge ~/.Xresources
+
+! View currently loaded resources:
+! xrdb -query -all
+
+! https://wiki.archlinux.org/index.php/X_resources
+!
+
+URxvt*iso14755: false
+URxvt*iso14755_52: false
+
+! https://github.com/simmel/urxvt-resize-font/blob/master/resize-font
+!URxvt.perl-ext-common: default,tabbed,matcher,clipboard,keyboard-select,resize-font,font-size,osc-clipboard,-tabbed
+URxvt.perl-ext-common: default,tabbed,matcher,resize-font,-tabbed
+URxvt.resize-font.smaller: C-minus
+URxvt.resize-font.bigger:  C-equal
+URxvt.resize-font.reset:  C-0
+
+
+XTerm*ttymodes: erase ^? kill ^U intr ^C quit ^\ eof ^D susp ^Z start ^Q stop ^S eol ^@
+
+URxvt*selectToClipboard: true
+URxvt*disallowedWindowOps: 20,21,SetXProp
+
+URxvt*geometry:   75x18
+URxvt*saveLines: 12000
+URxvt*termName:         rxvt-unicode-256color
+URxvt*background:       #212629
+URxvt*foreground:       #737c80
+URxvt*scrollBar:        true
+URxvt*scrollBar_right:  true
+URxvt*scrollstyle:      rxvt
+URxvt*matcher.button:   1
+URxvt*cursorBlink:      true
+URxvt*cursorColor:      #c1c8c9
+URxvt.transparent:      false
+URxvt*allow_bold:       true
+URxvt*colorUL:          #86a2b0
+
+URxvt*font:xft:Source\\ Code\\ Pro\\ Medium:size=12:antialias=true:hinting=true,xft:Source\\ Code\\ Pro\\ Regular:size=12:antialias=true:hinting=true
+
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.lcdfilter:  lcddefault
+Xft.hinting:    true
+Xft.hintstyle:  hintfull
+
+
+! urxvt 
+!---------------------------------------------------------------------
+
+!URxvt*letterSpace:  1
+
+! black + grey
+URxvt*color0:  #202020
+URxvt*color8:  #505050
+
+! red
+URxvt*color1:  #a07070
+URxvt*color9:  #d07070
+
+! green
+URxvt*color2:  #70a070
+URxvt*color10: #70d070
+
+! yellow
+URxvt*color3:  #a0a070
+URxvt*color11: #d0d070
+
+! blue
+URxvt*color4:  #7070a0
+URxvt*color12: #7070d0
+
+! magenta
+URxvt*color5:  #a070a0
+URxvt*color13: #d070d0
+
+! cyan
+URxvt*color6:  #70a0a0
+URxvt*color14: #70d0d0
+
+! light gray + white
+URxvt*color7:  #a0a0a0
+URxvt*color15: #f0f0f0
+
+
+
+!                                                                              !
+!------------------------------------------------------------------------------!
+
+! Saved for Preservation
+!
+!URxvt.perl-ext-common:  default,tabbed
+!URxvt*font:             xft:terminus:pixelsize=10
+!URxvt*boldFont:         xft:terminus:pixelsize=10
+!URxvt*termName:         rxvt
+!URxvt*colorBD:          #9a7b88  
+
+
+
+!DERP Color http://www.xcolors.net/dl/derp
+! http://www.xcolors.net/dl/jwr-dark
+!  http://www.xcolors.net/dl/NumixDarkest
+! http://www.xcolors.net/dl/splurge
+! http://www.xcolors.net/dl/tangoesque
+
+! http://www.xcolors.net/dl/Tartan
+
+
+!URxvt.dpi:              166
+!URxvt*font:xft:Menlo for Powerline:regular:size=12
+! URxvt*font:xft:Source Code Pro for Powerline,Sauce Code Powerline:style=Regular
+!URxvt*font: xft:DejaVu Sans Mono:pixelsize=18:antialias=true:hinting=true
+!URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=18:antialias=true:hinting=true
+!URxvt*font:             xft:terminus:pixelsize=10
+!URxvt*boldFont:         xft:terminus:pixelsize=10
+
+! xft fonts 
+!------------------------------------------------------------------
+
+!Xft.dpi:        166
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!~~~~~~
+!! All Options
+!!  --------------
+
+! URxvt*selection-pastebin.cmd:         string
+! URxvt*selection-pastebin.url:         string
+
+! URxvt*tab-bg:                         colour
+! URxvt*tab-fg:                         colour
+! URxvt*tabbar-bg:                      colour
+! URxvt*tabbar-fg:                      colour
+
+
+! URxvt*xrm:                            string
+! URxvt*background.border:              boolean
+! URxvt*background.expr:                string
+! URxvt*background.interval:            seconds
+
+! URxvt*bell-command:                   string
+
+! URxvt*matcher.button:                 string
+! URxvt*matcher.launcher:               string
+! URxvt*matcher.launcher.*:             string
+! URxvt*matcher.pattern.*:              string
+! URxvt*matcher.rend.*:                 string
+
+! URxvt*remote-clipboard.fetch:         string
+! URxvt*remote-clipboard.store:         string
+! URxvt*termName:                       string
+! URxvt*geometry:                       geometry
+! URxvt*chdir:                          string
+! URxvt*reverseVideo:                   boolean
+! URxvt*loginShell:                     boolean
+! URxvt*jumpScroll:                     boolean
+! URxvt*skipScroll:                     boolean
+! URxvt*pastableTabs:                   boolean
+! URxvt*scrollstyle:                    mode
+! URxvt*scrollBar:                      boolean
+! URxvt*scrollBar_right:                boolean
+! URxvt*scrollBar_floating:             boolean
+! URxvt*scrollBar_align:                mode
+! URxvt*thickness:                      number
+! URxvt*scrollTtyOutput:                boolean
+! URxvt*scrollTtyKeypress:              boolean
+! URxvt*scrollWithBuffer:               boolean
+! URxvt*inheritPixmap:                  boolean
+! URxvt*transparent:                    boolean
+! URxvt*tintColor:                      color
+! URxvt*shading:                        number
+! URxvt*blurRadius:                     HxV
+! URxvt*fading:                         number
+! URxvt*fadeColor:                      color
+! URxvt*utmpInhibit:                    boolean
+! URxvt*urgentOnBell:                   boolean
+! URxvt*visualBell:                     boolean
+! URxvt*mapAlert:                       boolean
+! URxvt*meta8:                          boolean
+! URxvt*mouseWheelScrollPage:           boolean
+! URxvt*tripleclickwords:               boolean
+! URxvt*insecure:                       boolean
+! URxvt*cursorUnderline:                boolean
+! URxvt*cursorBlink:                    boolean
+! URxvt*pointerBlank:                   boolean
+! URxvt*background:                     color
+! URxvt*foreground:                     color
+! URxvt*color0:                         color
+! URxvt*color1:                         color
+! URxvt*color2:                         color
+! URxvt*color3:                         color
+! URxvt*color4:                         color
+! URxvt*color5:                         color
+! URxvt*color6:                         color
+! URxvt*color7:                         color
+! URxvt*color8:                         color
+! URxvt*color9:                         color
+! URxvt*color10:                        color
+! URxvt*color11:                        color
+! URxvt*color12:                        color
+! URxvt*color13:                        color
+! URxvt*color14:                        color
+! URxvt*color15:                        color
+! URxvt*colorBD:                        color
+! URxvt*colorIT:                        color
+! URxvt*colorUL:                        color
+! URxvt*colorRV:                        color
+! URxvt*underlineColor:                 color
+! URxvt*scrollColor:                    color
+! URxvt*troughColor:                    color
+! URxvt*highlightColor:                 color
+! URxvt*highlightTextColor:             color
+! URxvt*cursorColor:                    color
+! URxvt*cursorColor2:                   color
+! URxvt*pointerColor:                   color
+! URxvt*pointerColor2:                  color
+! URxvt*borderColor:                    color
+! URxvt*path:                           search path
+! URxvt*backgroundPixmap:               file[;geom]
+! URxvt*iconFile:                       file
+! URxvt*font:                           fontname
+! URxvt*boldFont:                       fontname
+! URxvt*italicFont:                     fontname
+! URxvt*boldItalicFont:                 fontname
+! URxvt*intensityStyles:                boolean
+! URxvt*inputMethod:                    name
+! URxvt*preeditType:                    style
+! URxvt*imLocale:                       string
+! URxvt*imFont:                         fontname
+! URxvt*title:                          string
+! URxvt*iconName:                       string
+! URxvt*saveLines:                      number
+! URxvt*buffered:                       boolean
+! URxvt*depth:                          number
+! URxvt*visual:                         number
+! URxvt*transient-for:                  windowid
+! URxvt*override-redirect:              boolean
+! URxvt*hold:                           boolean
+! URxvt*externalBorder:                 number
+! URxvt*internalBorder:                 number
+! URxvt*borderLess:                     boolean
+! URxvt*lineSpace:                      number
+! URxvt*letterSpace:                    number
+! URxvt*skipBuiltinGlyphs:              boolean
+! URxvt*pointerBlankDelay:              number
+! URxvt*backspacekey:                   string
+! URxvt*deletekey:                      string
+! URxvt*print-pipe:                     string
+! URxvt*modifier:                       modifier
+! URxvt*cutchars:                       string
+! URxvt*answerbackString:               string
+! URxvt*secondaryScreen:                boolean
+! URxvt*secondaryScroll:                boolean
+! URxvt*perl-lib:                       string
+! URxvt*perl-eval:                      perl-eval
+! URxvt*perl-ext-common:                string
+! URxvt*perl-ext:                       string
+! URxvt*iso14755:                       boolean
+! URxvt*iso14755_52:                    boolean
+! URxvt*xrm:                            string
+! URxvt*keysym.sym:                     keysym
+! URxvt*background.border:              boolean
+! URxvt*background.expr:                string
+! URxvt*background.interval:            seconds
+! URxvt*bell-command:                   string
+! URxvt*matcher.button:                 string
+! URxvt*matcher.launcher:               string
+! URxvt*matcher.launcher.*:             string
+! URxvt*matcher.pattern.*:              string
+! URxvt*matcher.rend.*:                 string
+! URxvt*remote-clipboard.fetch:         string
+! URxvt*remote-clipboard.store:         string
+! URxvt*searchable-scrollback:          string
+! URxvt*selection-autotransform.*:      string
+! URxvt*selection-pastebin.cmd:         string
+! URxvt*selection-pastebin.url:         string
+! URxvt*selection.pattern-0:            string
+! URxvt*tab-bg:                         colour
+! URxvt*tab-fg:                         colour
+! URxvt*tabbar-bg:                      colour
+! URxvt*tabbar-fg:                      colour
+! URxvt*url-launcher:                   string
+
+
+

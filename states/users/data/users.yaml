@@ -37,53 +37,59 @@ users:
     custom_gitignore: True
     custom_gitconfig: True
     git_repos_https:
-      - url: https://github.com/kettlewell
-        dir: emacs.d
-      - url: https://github.com/codeforester
-        dir: base
-      - url: https://github.com/sathisharthar
-        dir: admin-scripts
-      - url: https://github.com/magicmonty
-        dir: bash-git-prompt
-      - url: https://github.com/labbots
-        dir: bash-utility
-      - url: https://github.com/hariwin7
-        dir: dynamic-vue-components
-      - url: https://github.com/testdrivenio
-        dir: fastapi-vue
-      - url: https://github.com/tiangolo
-        dir: full-stack-fastapi-postgresql
-      - url: https://github.com/FrenzyHarmony
-        dir: nginx-fastapi-vuejs
-      - url: https://github.com/nginx-proxy
-        dir: nginx-proxy
-      - url: https://github.com/geerlingguy
-        dir: packer-boxes
-      - url: https://github.com/saltstack
-        dir: salt
-      - url: https://github.com/tmux-plugins
-        dir: tpm
-      - url: https://github.com/jzfai
-        dir: vue3-admin-ts
-      - url: https://github.com/NovoManu
-        dir: vue-smart-layouts
-      - url: https://github.com/python
-        dir: psf-salt
-      - url: https://github.com/teamdfir
-        dir: sift-saltstack
-
+      - url: https://github.com/kettlewell/emacs.d.git
+        dir: kettlewell-emacs.d
+      - url: https://github.com/codeforester/base.git
+        dir: codeforester-base
+      - url: https://github.com/sathisharthar/admin-scripts.git
+      - url: https://github.com/magicmonty/bash-git-prompt.git
+      - url: https://github.com/labbots/bash-utility.git
+      - url: https://github.com/hariwin7/dynamic-vue-components.git
+      - url: https://github.com/testdrivenio/fastapi-vue.git
+      - url: https://github.com/tiangolo/full-stack-fastapi-postgresql.git
+      - url: https://github.com/FrenzyHarmony/nginx-fastapi-vuejs.git
+      - url: https://github.com/nginx-proxy/nginx-proxy.git
+      - url: https://github.com/geerlingguy/packer-boxes.git
+      - url: https://github.com/saltstack/salt.git
+        dir: saltstack-salt
+      - url: https://github.com/tmux-plugins/tmp.git
+        dir: tmux-plugins-tpm
+      - url: https://github.com/jzfai/vue3-admin-ts.git
+      - url: https://github.com/NovoManu/vue-smart-layouts.git
+      - url: https://github.com/python/psf-salt.git
+      - url: https://github.com/teamdfir/sift-saltstack.git
+      - url: https://github.com/skbolton/titan.git
+      - url: https://github.com/petrows/saltstack-config.git
+      - url: https://github.com/Rudd-O/saltstack-automation.git
+      - url: https://github.com/rbkmoney/salt-common.git
+      - url: https://github.com/jdelic/saltshaker-laptop.git
+      - url: https://github.com/sysadmws/sysadmws-formula.git
+      - url: https://github.com/wuxxin/salt-shared.git
+      - url: https://github.com/roycollings/saltstack.git
+        dir: roycollings-saltstack
+      - url: https://github.com/emjelde/dotfiles.git
+        dir: emjelde-dotfiles
+      - url: https://github.com/Whyrl35/saltstack.git
+        dir: whyrl35-saltstack
+      - url: https://github.com/ralex/salt-laptop.git
+        dir: ralex-salt-laptop
+      - url: https://github.com/imaginator/system.git
+        dir: imaginator-system
+      - url: https://github.com/femnad/anr.git
+      - url: https://github.com/Everbridge/generate-secure-pillar.git
+      - url: https://github.com/immobiliare/peephole.git
 
     git_repos_ssh:
-      - url: admin01.kettlewell.fam:/data/git-bare
-        dir: snips
-      - url: git@github.com:kettlewell
-        dir: dotfiles
-      - url: git@github.com:kettlewell
-        dir: flowstate
-      - url: git@github.com:kettlewell
-        dir: prototypical
-      - url: git@github.com:kettlewell
-        dir: me
+      - url: admin01.kettlewell.fam:/data/git-bare/snips.git
+        dir: kettlewell-snips
+      - url: git@github.com:kettlewell/dotfiles.git
+        dir: kettlewell-dotfiles
+      - url: git@github.com:kettlewell/flowstate.git
+        dir: kettlewell-flowstate
+      - url: git@github.com:kettlewell/prototypical.git
+        dir: kettlewell-prototypical
+      - url: git@github.com:kettlewell/me.git
+        dir: kettlewell-me
     gnome_launcher_apps:
       - org.gnome.Terminal.desktop
       - code.desktop
