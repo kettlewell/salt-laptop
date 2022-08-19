@@ -52,7 +52,7 @@ users:
       - url: https://github.com/geerlingguy/packer-boxes.git
       - url: https://github.com/saltstack/salt.git
         dir: saltstack-salt
-      - url: https://github.com/tmux-plugins/tmp.git
+      - url: https://github.com/tmux-plugins/tpm.git
         dir: tmux-plugins-tpm
       - url: https://github.com/jzfai/vue3-admin-ts.git
       - url: https://github.com/NovoManu/vue-smart-layouts.git
