@@ -45,3 +45,5 @@ golang_bash_profile:
 test-go-basedir:
   cmd.run:
     - name: echo {{ go_basedir }}
+    - unless:
+        - go version | grep {{ go_version }}
