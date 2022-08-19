@@ -2,8 +2,7 @@ Things to add
 * go
 * docker
 * bin/scripts
-* .tmux.conf
-* .Xresources
+* node
 
 
 optional / later:
@@ -33,3 +32,5 @@ Done-ish:
 * snaps
 * global git config files
 * zoom
+* .tmux.conf
+* .Xresources
