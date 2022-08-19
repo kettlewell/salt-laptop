@@ -31,7 +31,7 @@ golang_bash_profile:
   file.managed:
     - name: /etc/profile.d/golang.sh
     - source:
-        - salt://packages/files/go_profile.jinja
+        - salt://packages/files/golang_profile.jinja
     - template: jinja
     - context:
         go_prefix: {{ go_prefix }}
