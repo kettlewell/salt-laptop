@@ -40,7 +40,7 @@ golang_bash_profile:
     - group: root
 
 
-{% set go_base_dir = '%s/golang/%s'|format(go_prefix, go_version) %}
+{% set go_basedir = '%s/golang/%s'|format(go_prefix, go_version) %}
 
 test-go-basedir:
   cmd.run:
