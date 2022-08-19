@@ -39,7 +39,7 @@ golang_bash_profile:
     - user: root
     - group: root
 
-
+{#
 {% set go_basedir = '%s/golang/%s'|format(go_prefix, go_version) %}
 
 test-go-basedir:
@@ -47,3 +47,4 @@ test-go-basedir:
     - name: echo {{ go_basedir }}
     - unless:
         - go version | grep {{ go_version }}
+#}
