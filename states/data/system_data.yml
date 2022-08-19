@@ -4,3 +4,5 @@ system:
     checksum: 464b6b66591f6cf055bc5df90a9750bf5fbc9d038722bb84a9d56a2bea974be6
     filename: go1.19.linux-amd64.tar.gz
     url: https://go.dev/dl/go1.19.linux-amd64.tar.gz
+    prefix: /usr/local
+    force_update: False

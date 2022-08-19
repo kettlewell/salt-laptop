@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# WARNING!! This file is managed by Salt at <{{ source }}>
+# All edits will be lost on the next highstate
+export GOROOT={{ go_prefix }}/go
+export GOPATH=${HOME}/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
