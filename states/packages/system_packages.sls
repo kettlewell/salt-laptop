@@ -48,7 +48,6 @@ system_packages:
 #      - git-man
 #      - gitg
       - gitk
-      - golang
 #      - google-chrome-stable
 #      - gpaste
       - gnupg2
