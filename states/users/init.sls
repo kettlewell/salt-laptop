@@ -6,7 +6,8 @@ include:
   - users.ssh_config
   - users.dotfiles
   - users.tmux
-  - users.xdefaults
+  - users.xresources
+  - users.xinitrc
   - users.bashrc
   - users.aliases
   - users.profile
