@@ -9,3 +9,4 @@ include:
   - packages.pip_packages
   - packages.install_golang
   - packages.install_docker
+  - packages.install_nodejs
