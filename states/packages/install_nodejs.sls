@@ -11,7 +11,7 @@
 {% set nodejs_distro    =  nodejs.distro              %}
 
 
-{% set nodejs_binpath   =  '%s/nodejs/node-%s-%s'|format(nodejs_prefix, nodejs_version, nodejs_distro) %}
+{% set nodejs_binpath   =  '%s/node-%s-%s'|format(nodejs_prefix, nodejs_version, nodejs_distro) %}
 
 nodejs_install:
   archive.extracted:
@@ -34,7 +34,7 @@ nodejs_bash_profile:
         - salt://packages/files/nodejs_profile.jinja
     - template: jinja
     - context:
-        nodejs_prefix: {{ nodejs_prefix }}
+        nodejs_binpath: {{ nodejs_binpath }}
     - mode: 644
     - user: root
     - group: root
