@@ -11,7 +11,7 @@
 {% set nodejs_distro    =  nodejs.distro              %}
 
 
-{% set nodejs_binpath   =  '%s/node-%s-%s'|format(nodejs_prefix, nodejs_version, nodejs_distro) %}
+{% set nodejs_binpath   =  '%s/node-%s-%s/bin'|format(nodejs_prefix, nodejs_version, nodejs_distro) %}
 
 nodejs_install:
   archive.extracted:
