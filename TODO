@@ -1,5 +1,4 @@
 Things to add
-* docker
 * bin/scripts
 * node
 
@@ -39,3 +38,4 @@ Done-ish:
 * .tmux.conf
 * .Xresources
 * go
+* docker
