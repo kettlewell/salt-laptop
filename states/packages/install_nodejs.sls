@@ -8,6 +8,8 @@
 {% set nodejs_filename  =  nodejs.filename            %}
 {% set nodejs_url       =  nodejs.url                 %}
 {% set nodejs_prefix    =  nodejs.prefix              %}
+{% set nodejs_distro    =  nodejs.distro              %}
+
 
 {% set nodejs_binpath   =  '%s/nodejs/node-%s-%s'|format(nodejs_prefix, nodejs_version, nodejs_distro) %}
 
