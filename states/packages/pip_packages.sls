@@ -13,19 +13,9 @@ include:
  # initial plan: read system_data for global pip packages
  #               read users_data for user venv pip packages
 
-
-# currently salt doesn't support virtualenv nor pyenv with python 3.9
-# this is a workaround that kinda gets us there...
-
-/usr/local/bin/py_env.sh:
-  file.managed:
-    - source: salt://packages/files/py_env.sh
-    - user: root
-    - group: root
-    - mode: "0755"
-
 # global package installation
 # TODO: cleanup the requirements file... lots of non-global stuff there
+
 global_pip_install:
   pip.installed:
     - name: global pip installation
@@ -33,9 +23,8 @@ global_pip_install:
     - require:
       - sls: packages.system_packages
 
+
 {% for user, user_config in users.items() %}
-
-
 {% if user_config.venv_projects is defined and user_config.venv_projects %}
 
 /home/{{user}}/venv:
@@ -45,7 +34,6 @@ global_pip_install:
     - mode: "0755"
 
 {% for project in user_config.venv_projects %}
-#    - venv_bin: /usr/local/bin/py_env.sh
 
 /home/{{user}}/venv/{{project}}:
   virtualenv.managed:
@@ -56,18 +44,6 @@ global_pip_install:
       - file: /usr/local/bin/py_env.sh
     - user: {{user}}
 
-
 {% endfor %}
 {% endif %}
-
 {% endfor %}
-{#
-#{% for file in salt['cp.list_master'](prefix='generic/files') %}
-#install_repo_{{ file }}:
-#  file.managed:
-#    - name: /etc/yum.repos.d/{{ file }}
-#    - source: salt://generic/files/{{ file }}
-#    - template: jinja
-#{% endfor %}
-#}
-
