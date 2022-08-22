@@ -7,12 +7,22 @@ include:
 {% set users       =  users_data.users  %}
 
 
-# pip packages aren't normally global, so this should just be for global packages, 
+# pip packages aren't normally global, so this should just be for global packages,
 # and then each project can manage their own pip packages in a venv of some sort
- 
+
  # initial plan: read system_data for global pip packages
  #               read users_data for user venv pip packages
 
+
+# currently salt doesn't support virtualenv nor pyenv with python 3.9
+# this is a workaround that kinda gets us there...
+
+/usr/local/bin/py_env.sh:
+  file.managed:
+    - source: salt://packages/files/py_env.sh
+    - user: root
+    - group: root
+    - mode: "0755"
 
 # global package installation
 # TODO: cleanup the requirements file... lots of non-global stuff there
@@ -39,11 +49,12 @@ global_pip_install:
 /home/{{user}}/venv/{{project}}:
   virtualenv.managed:
     - system_site_packages: False
+    - venv_bin: /usr/local/bin/py_env.sh
     - requirements: salt://packages/requirements/{{user}}/{{project}}_requirements.txt
     - require:
       - file: /home/{{user}}/venv
     - user: {{user}}
-    
+
 
 {% endfor %}
 {% endif %}
