@@ -45,11 +45,11 @@ global_pip_install:
     - mode: "0755"
 
 {% for project in user_config.venv_projects %}
+#    - venv_bin: /usr/local/bin/py_env.sh
 
 /home/{{user}}/venv/{{project}}:
   virtualenv.managed:
     - system_site_packages: False
-    - venv_bin: /usr/local/bin/py_env.sh
     - requirements: salt://packages/requirements/{{user}}/{{project}}_requirements.txt
     - require:
       - file: /home/{{user}}/venv

@@ -43,5 +43,4 @@ six
 sos
 systemd-python
 urllib3
-pyenv
 virtualenv
