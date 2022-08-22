@@ -2,12 +2,12 @@ include:
   - users.create-users
   - vscode.create-dir
 
-{% import_yaml 'users/data/users.yaml' as users_file %}
-{% for user, userattr in users_file['users'].items() %}
+{% import_yaml 'data/users_data.yaml' as users_data %}
+{% for user, user_config in users_data['users'].items() %}
 
-{%   if userattr.vscode_extensions is defined and userattr.vscode_extensions %}
+{%   if user_config.vscode_extensions is defined and user_config.vscode_extensions %}
 
-{% for extension in userattr.vscode_extensions %}
+{% for extension in user_config.vscode_extensions %}
 
 
 {{user}}_code_install_{{extension}}:
