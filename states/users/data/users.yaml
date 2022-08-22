@@ -23,9 +23,80 @@ users:
       - yk_nano_key
 
     vscode_extensions:
+      - antfu.browse-lite
+      - antfu.vite
+      - azuretools.vscode-docker
+      - bbenoist.vagrant
+      - bradlc.vscode-tailwindcss
+      - bungcip.better-toml
+      - chrmarti.regex
+      - cschlosser.doxdocgen
+      - dandric.vscode-jq
+      - dbaeumer.vscode-eslint
+      - dotnettools.vscode-dotnet-runtime
       - eamodio.gitlens
+      - emilast.logfilehighlighter
+      - esbenp.prettier-vscode
+      - gamunu.vscode-yarn
+      - gitkraken.gitkraken-authentication
+      - golang.go
+      - hollowtree.vue-snippets
+      - huizhou.githd
+      - humao.rest-client
+      - hykin.better-cpp-syntax
+      - ibm.output-colorizer
+      - jcbuisson.vue
+      - josetr.cmake-language-support-vscode
+      - julialang.language-julia
+      - kaiwood.center-editor-window
+      - kipjr.vscode-language-ipxe
+      - kohler.npm-intellisense
+      - kohler.path-intellisense
+      - korekontrol.saltstack
+      - lang.rust-analyzer
+      - mikestead.dotenv
+      - mikey.vscode-fileheader
       - ms-python.python
       - ms-python.vscode-pylance
+      - mtxr.sqltools
+      - python.python
+      - python.vscode-pylance
+      - rafaelmaiolla.diff
+      - redhat.vscode-yaml
+      - remote.remote-containers
+      - remote.remote-ssh
+      - remote.remote-ssh-edit
+      - remote.remote-wsl
+      - ritwickdey.liveserver
+      - sdras.vue-vscode-snippets
+      - sleistner.vscode-fileutils
+      - tabnine.tabnine-vscode
+      - team.vscode-icons
+      - tobermory.es6-string-html
+      - tombonnike.vscode-status-bar-format-toggle
+      - tools.vscode-kubernetes-tools
+      - toolsai.jupyter
+      - toolsai.jupyter-keymap
+      - twxs.cmake
+      - tyriar.lorem-ipsum
+      - u.docker-compose
+      - usernamehw.errorlens
+      - visualstudioexptteam.vscodeintellicode
+      - voyek.vscode-nginx
+      - vscode.cmake-tools
+      - vscode.cpptools
+      - vscode.cpptools-extension-pack
+      - vscode.cpptools-themes
+      - vscode.makefile-tools
+      - vue.volar
+      - vue.vscode-typescript-vue-plugin
+      - warpnet.salt-lint
+      - wmaurer.vscode-jumpy
+      - xabikos.javascriptsnippets
+      - zixuanchen.vitest-explorer
+
+
+
     vscode_settings: True
     vscode_keyboard_bindings: True
     custom_bashrc: True

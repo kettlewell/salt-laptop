@@ -15,25 +15,19 @@ system_packages:
       - colord-gtk
       - colord-kde
       - colordiff
-#      - containerd.io
 #      - cool-retro-term
       - coreutils
-#      - cowbuilder
-#      - cowdancer
       - cpio
       - curl
       - dbus-x11
       - dconf-editor
       - diffstat
       - diffutils
-#      - dockerce
-#      - dolphin
       - eatmydata
       - efibootmgr
       - efivar
       - emacs-nox
       - ethtool
-#      - fdisk
 #      - ffmpeg
 #      - flake8
       - gcc
@@ -45,37 +39,28 @@ system_packages:
       - gdb
       - gdb-minimal
       - git
-#      - git-man
-#      - gitg
       - gitk
-#      - gpaste
       - gnupg2
-#      - gpg-agent
-#      - gwenview
       - haveged
       - hddtemp
-#      - helm
-#      - hfsplus
       - hicolor-icon-theme
       - highlight
-#      - highlight-common
-#      - hitori
       - htop
       - httpd
       - iftop
       - iotop
       - llvm
-#      - lm-sensors
-#      - lp-solve
+      - lm_sensors
+      - lpsolve
       - lsof
       - lsscsi
       - mariadb
       - most
-#      - msgpack-cli
+      - msgpack
       - mtr
       - netcat
       - os-prober
-#      - osinfo
+      - osinfo-db
 #      - packer
 #      - pgadmin4
       - pigz
@@ -85,10 +70,9 @@ system_packages:
       - procps-ng
       - rng-tools
       - rsync
-#      - slack-desktop
       - snapd
       - socat
-#      - sqlite3
+      - sqlite
       - strace
       - sysfsutils
       - tcpdump
