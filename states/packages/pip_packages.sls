@@ -53,6 +53,7 @@ global_pip_install:
     - requirements: salt://packages/requirements/{{user}}/{{project}}_requirements.txt
     - require:
       - file: /home/{{user}}/venv
+      - file: /usr/local/bin/py_env.sh
     - user: {{user}}
 
 
