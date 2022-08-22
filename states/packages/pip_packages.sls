@@ -48,7 +48,7 @@ global_pip_install:
 {% endfor %}
 {% endif %}
 
-
+{% endfor %}
 {#
 #{% for file in salt['cp.list_master'](prefix='generic/files') %}
 #install_repo_{{ file }}:
