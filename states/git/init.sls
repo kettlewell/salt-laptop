@@ -2,11 +2,13 @@
 include:
   - users.create-users
 
-{% import_yaml 'users/data/users.yaml' as users_file %}
-{% for user, userattr in users_file['users'].items() %}
+{% import_yaml 'data/users_data.yml' as users_data %}
+{% set users  =  users_data.users  %}
+{% for user, user_config in users.items() %}
 
-{% if ( (userattr.git_repos_https is defined and userattr.git_repos_https) or 
-      (userattr.git_repos_ssh is defined and userattr.git_repos_ssh) )  %}
+
+{% if ( (user_config.git_repos_https is defined and user_config.git_repos_https) or
+      (user_config.git_repos_ssh is defined and user_config.git_repos_ssh) )  %}
 
 /home/{{ user }}/git:
   file.directory:
@@ -19,8 +21,8 @@ include:
 
 {% endif %}
 
-{% if (userattr.git_repos_https is defined and userattr.git_repos_https) %}
-{% set http_repo = userattr.git_repos_https %}
+{% if (user_config.git_repos_https is defined and user_config.git_repos_https) %}
+{% set http_repo = user_config.git_repos_https %}
 
 {% for repo in http_repo %}
 
@@ -43,8 +45,8 @@ git_clone_{{ repo.url }}:
 {% endfor %}
 {% endif %}
 
-{% if (userattr.git_repos_ssh is defined and userattr.git_repos_ssh) %}
-{% set ssh_repo = userattr.git_repos_ssh %}
+{% if (user_config.git_repos_ssh is defined and user_config.git_repos_ssh) %}
+{% set ssh_repo = user_config.git_repos_ssh %}
 
 {% for repo in ssh_repo %}
 {% if (repo.dir is defined and repo.dir) %}
@@ -65,7 +67,7 @@ git_clone_{{ repo.url }}:
 {% endfor %}
 {% endif %}
 
-{% set user_name = user  if userattr.custom_gitignore is defined and userattr.custom_gitignore else 'default' %}
+{% set user_name = user  if user_config.custom_gitignore is defined and user_config.custom_gitignore else 'default' %}
 
 {% if user_name != 'default' %}
 
@@ -80,7 +82,7 @@ git_clone_{{ repo.url }}:
 
 {% endif %}
 
-{% set user_name = user  if userattr.custom_gitconfig is defined and userattr.custom_gitconfig else 'default' %}
+{% set user_name = user  if user_config.custom_gitconfig is defined and user_config.custom_gitconfig else 'default' %}
 {% if user_name != 'default' %}
 
 /home/{{ user }}/.gitconfig:

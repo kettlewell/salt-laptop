@@ -3,11 +3,12 @@
 
 include:
   - users.create-users
+{% import_yaml 'data/users_data.yml' as users_data %}
+{% set users  =  users_data.users  %}
+{% for user, user_config in users.items() %}
 
-{% import_yaml 'users/data/users.yaml' as users_file %}
-{% for user, userattr in users_file['users'].items() %}
-{% if userattr.gnome_launcher_apps is defined and userattr.gnome_launcher_apps %}
-{% set gnome_launcher_apps = userattr.gnome_launcher_apps|tojson|replace('"', "'")%}
+{% if user_config.gnome_launcher_apps is defined and user_config.gnome_launcher_apps %}
+{% set gnome_launcher_apps = user_config.gnome_launcher_apps|tojson|replace('"', "'")%}
 
 
 # Make the default button layout a lot less stupid

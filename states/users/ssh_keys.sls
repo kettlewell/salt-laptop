@@ -1,8 +1,10 @@
 include:
   - users.create-users
 
-{% import_yaml 'users/data/users.yaml' as users_file %}
-{% for user, userattr in users_file['users'].items() %}
+{% import_yaml 'data/users_data.yml' as users_data %}
+{% set users  =  users_data.users  %}
+{% for user, user_config in users.items() %}
+
 
 {{ user }}-ssh_dir:
   file.directory:
@@ -21,7 +23,7 @@ include:
       - user: {{ user }}
       - file: {{ user }}-ssh_dir
 
-{%   if userattr.ssh_keys is defined and userattr.ssh_keys %}
+{%   if user_config.ssh_keys is defined and user_config.ssh_keys %}
 
 {{ user }}-ssh_key:
   file.managed:
@@ -31,16 +33,16 @@ include:
     - source: salt://users/config/authorized_keys.jinja
     - template: jinja
     - context:
-      ssh_keys: {{ userattr["ssh_keys"] }}
+      ssh_keys: {{ user_config["ssh_keys"] }}
     - require:
       - user: {{ user }}
       - file: {{ user }}-ssh_dir
 
 {% endif %}
 
-{%   if userattr.ssh_keys_encrypted is defined and userattr.ssh_keys_encrypted %}
+{%   if user_config.ssh_keys_encrypted is defined and user_config.ssh_keys_encrypted %}
 
-{% for ssh_key in userattr.ssh_keys_encrypted %}
+{% for ssh_key in user_config.ssh_keys_encrypted %}
 
 {{ user }}-ssh_key_{{ ssh_key }}:
   file.managed:
@@ -48,7 +50,7 @@ include:
     - user: {{ user }}
     - mode: "0600"
     - attrs: a
-    - contents_pillar: ssh_keys_encrypted:{{ ssh_key }} 
+    - contents_pillar: ssh_keys_encrypted:{{ ssh_key }}
     - require:
       - user: {{ user }}
       - file: {{ user }}-ssh_dir

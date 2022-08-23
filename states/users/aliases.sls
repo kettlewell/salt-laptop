@@ -1,10 +1,12 @@
 include:
   - users.create-users
 
-{% import_yaml 'users/data/users.yaml' as users_file %}
-{% for user, userattr in users_file['users'].items() %}
+{% import_yaml 'data/users_data.yml' as users_data %}
+{% set users  =  users_data.users  %}
+{% for user, user_config in users.items() %}
 
-{% set dir_name = user  if userattr.custom_aliases is defined and userattr.custom_aliases else 'default' %}
+
+{% set dir_name = user  if user_config.custom_aliases is defined and user_config.custom_aliases else 'default' %}
 
 {% if dir_name != 'default' %}
 

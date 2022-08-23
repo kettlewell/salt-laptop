@@ -2,10 +2,12 @@ include:
   - users.create-users
   - vscode.create-dir
 
-{% import_yaml 'users/data/users.yaml' as users_file %}
-{% for user, userattr in users_file['users'].items() %}
+{% import_yaml 'data/users_data.yml' as users_data %}
+{% set users  =  users_data.users  %}
+{% for user, user_config in users.items() %}
 
-{%   if userattr.vscode_keyboard_bindings is defined and userattr.vscode_keyboard_bindings %}
+
+{%   if user_config.vscode_keyboard_bindings is defined and user_config.vscode_keyboard_bindings %}
 
 /home/{{ user }}/.config/Code/User/keybindings.json:
   file.managed:
