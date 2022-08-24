@@ -1,16 +1,10 @@
 {% import_yaml 'data/system_data.yml' as system_data %}
 
-{% set systemctl       =  system_data.system.systemctl  %}
+{% set sysctl  =  system_data.system.sysctl  %}
 
 
-{% if systemctl is defined and systemctl %}
-{% for k, v in systemctl.items() %}
-
-{#
-test_{{ k }}_{{ v }}:
-  cmd.run:
-    - name: echo {{ k }}_{{ v }}
-#}
+{% if sysctl is defined and sysctl %}
+{% for k, v in sysctl.items() %}
 
 {{ k }}:
   sysctl.present:
