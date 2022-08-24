@@ -12,19 +12,6 @@ include:
 {% set early_clone_repo = user_config.git_early_clone %}
 {% for repo_name,repo_config in early_clone_repo.items() %}
 
-repo_name-{{repo_name}}:
-  cmd.run:
-    - name: echo {{ repo_name }}
-
-repo_config_dir-{{repo_config.dir}}:
-  cmd.run:
-    - name: echo {{ repo_config.dir }}
-
-repo_config_url-{{repo_config.url}}:
-  cmd.run:
-    - name: echo {{ repo_config.url }}
-
-
 
 {% if (repo_config.dir is defined and repo_config.dir) %}
 {% set repo_dir = repo_config.dir %}
@@ -46,6 +33,5 @@ git_clone_{{ repo_config.url }}:
 {% endfor %}
 
 {% endif %}
-
 
 {% endfor %}
