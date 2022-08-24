@@ -14,7 +14,7 @@ include:
   file.managed:
     - require:
       - sls: users.create-users
-    - source: salt://users/files/{{user}}/bash_functions
+    - source: salt://dotfiles/files/{{user}}/bash_functions
     - user: {{user}}
     - group: {{user}}
     - mode: 644

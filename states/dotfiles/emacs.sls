@@ -23,7 +23,7 @@ include:
     - require:
       - sls: users.create-users
       - file: /home/{{ user }}/.emacs.d
-    - source: salt://users/files/{{user}}/emacs-init.el
+    - source: salt://dotfiles/files/{{user}}/emacs-init.el
     - user: {{user}}
     - group: {{user}}
     - mode: 700

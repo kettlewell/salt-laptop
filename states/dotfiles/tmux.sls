@@ -12,7 +12,7 @@ include:
   file.managed:
     - require:
       - sls: users.create-users
-    - source: salt://users/files/{{user}}/tmux_conf
+    - source: salt://dotfiles/files/{{user}}/tmux_conf
     - user: {{user}}
     - group: {{user}}
     - mode: 644

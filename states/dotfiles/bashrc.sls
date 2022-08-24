@@ -12,7 +12,7 @@ include:
   file.managed:
     - require:
       - sls: users.create-users
-    - source: salt://users/files/{{dir_name}}/bashrc
+    - source: salt://dotfiles/files/{{dir_name}}/bashrc
     - user: {{user}}
     - group: {{user}}
     - mode: 644

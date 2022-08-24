@@ -12,7 +12,7 @@ include:
   file.managed:
     - require:
       - sls: users.create-users
-    - source: salt://users/files/{{user}}/Xresources
+    - source: salt://dotfiles/files/{{user}}/Xresources
     - user: {{user}}
     - group: {{user}}
     - mode: 644
