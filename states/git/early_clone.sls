@@ -15,6 +15,11 @@ include:
 repo_name-{{repo_name}}:
   cmd.run:
     - name: echo {{ repo_name }}
+
+repo_config_dir-{{repo_config.dir}}:
+  cmd.run:
+    - name: echo {{ repo_config.dir }}
+
 {#
 
 {% for repo in repo_config %}
