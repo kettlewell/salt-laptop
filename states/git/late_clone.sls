@@ -62,7 +62,7 @@ git_clone_{{ repo.url }}:
   file.managed:
     - require:
       - sls: users.create-users
-    - source: salt://users/files/{{user}}/gitignore_global
+    - source: salt://dotfiles/files/{{user}}/gitignore_global
     - user: {{user}}
     - group: {{user}}
     - mode: 644
@@ -76,7 +76,7 @@ git_clone_{{ repo.url }}:
   file.managed:
     - require:
       - sls: users.create-users
-    - source: salt://users/files/{{user}}/gitconfig
+    - source: salt://dotfiles/files/{{user}}/gitconfig
     - user: {{user}}
     - group: {{user}}
     - mode: 644
