@@ -14,6 +14,6 @@ test_{{ k }}_{{ v }}:
   cmd.run:
     - name: echo {{ k }}_{{ v }}
 
-{% endif %}
 
 {% endfor %}
+{% endif %}
