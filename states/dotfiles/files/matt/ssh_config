@@ -1,0 +1,102 @@
+CanonicalizeHostname yes
+#CanonicalizeHostname always
+CanonicalDomains kettlewell.fam
+CanonicalizeMaxDots 4
+#CanonicalizeFallbackLocal no
+CanonicalizeFallbackLocal yes
+
+
+
+## Home Machines
+
+# freddy
+#Host freddy freddy.kettlewell.fam
+#  Hostname 10.99.2.66
+#  User matt
+
+#Host freddy-wired freddy-wired.kettlewell.fam
+#  Hostname 10.99.2.67
+#  User matt
+
+# gomer / laptop
+#Host gomer gomer.kettlewell.fam
+#  Hostname 10.99.2.60
+#  User matt
+#  IdentityFile /home/matt/.ssh/keys/keys/matt_gomer_key
+#  ForwardAgent yes
+#  IdentitiesOnly yes
+
+Host admin01 admin01.kettlewell.fam
+  Hostname 10.99.1.2
+  User matt
+  IdentityFile /home/matt/.ssh/keys/matt_gomer_key
+  ForwardAgent yes
+  IdentitiesOnly yes
+  #ForwardX11 yes
+  #ForwardX11Trusted yes
+
+Host admin02 admin02.kettlewell.fam
+  Hostname 10.99.1.3
+  User matt
+  IdentityFile /home/matt/.ssh/keys/matt_gomer_key
+  ForwardAgent yes
+  IdentitiesOnly yes
+
+#Host firewall firewall.kettlewell.fam
+#  Hostname 10.99.0.1
+#  User matt
+#  IdentityFile /home/matt/.ssh/keys/matt_gomer_key
+#  ForwardAgent yes
+#  IdentitiesOnly yes
+
+
+#Host *.kettlewell.fam
+#  User matt
+
+#Host 10.99.*
+#  User matt
+
+
+##################################################
+##################################################
+
+Host github
+  Hostname github.com
+  User git
+  IdentityFile /home/matt/.ssh/keys/matt_kettlewell_github_key
+
+# freddy-rocky
+Host freddy freddy-rocky freddy-rocky.kettlewell.fam
+  Hostname 10.99.2.68
+  User matt
+  IdentitiesOnly no
+  PasswordAuthentication yes
+  PreferredAuthentications password,publickey,keyboard-interactive
+
+Host freddy-wired freddy-rocky-wired freddy-rocky-wired.kettlewell.fam
+  Hostname 10.99.2.69
+  User matt
+
+
+Host *
+  User matt
+  AddKeysToAgent yes
+  ForwardAgent yes
+  #ForwardX11 yes
+  #ForwardX11Trusted yes
+  ConnectTimeout 30
+  ControlPath /home/matt/.ssh/tmp/%h.%p
+  ControlPersist 3600
+  #ControlPersist no
+  ControlMaster auto
+  ServerAliveInterval 30
+  GSSAPIAuthentication no
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+  CheckHostIP no
+  #PubkeyAcceptedKeyTypes +ssh-rsa
+  IdentityFile /home/matt/.ssh/keys/mk_key
+  #IdentitiesOnly yes
+  PasswordAuthentication yes
+  PreferredAuthentications publickey,keyboard-interactive
+  

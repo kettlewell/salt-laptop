@@ -1,11 +1,11 @@
 #!jinja|yaml
 
 include:
-  - users.tmux
-  - users.xresources
-  - users.xinitrc
-  - users.bashrc
-  - users.aliases
-  - users.profile
-  - users.functions
-  - users.emacs
+  - dotfiles.tmux
+  - dotfiles.xresources
+  - dotfiles.xinitrc
+  - dotfiles.bashrc
+  - dotfiles.aliases
+  - dotfiles.profile
+  - dotfiles.functions
+  - dotfiles.emacs
