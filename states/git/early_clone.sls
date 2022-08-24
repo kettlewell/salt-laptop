@@ -20,28 +20,28 @@ repo_config_dir-{{repo_config.dir}}:
   cmd.run:
     - name: echo {{ repo_config.dir }}
 
-{#
+repo_config_url-{{repo_config.url}}:
+  cmd.run:
+    - name: echo {{ repo_config.url }}
 
-{% for repo in repo_config %}
 
-{% if (repo.dir is defined and repo.dir) %}
-{% set repo_dir = repo.dir %}
+
+{% if (repo_config.dir is defined and repo_config.dir) %}
+{% set repo_dir = repo_config.dir %}
 {% else %}
-{% set repo_dir = salt['file.basename'](repo.url) | replace(".git", "") %}
+{% set repo_dir = salt['file.basename'](repo_config.url) | replace(".git", "") %}
 {% endif %}
 
-git_clone_{{ repo.url }}:
+git_clone_{{ repo_config.url }}:
   git.cloned:
-    - name: {{ repo.url }}
+    - name: {{ repo_config.url }}
     - target: /home/{{ user }}/git/{{ repo_dir }}
     - require:
       - sls: users.create-users
       - file: /home/{{ user }}/git
     - user: {{user}}
 
-{% endfor %}
 
-#}
 
 {% endfor %}
 
