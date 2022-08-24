@@ -49,7 +49,6 @@ include:
     - name: /home/{{ user }}/.ssh/keys/{{ ssh_key }}
     - user: {{ user }}
     - mode: "0600"
-    - attrs: a
     - contents_pillar: ssh_keys_encrypted:{{ ssh_key }}
     - require:
       - user: {{ user }}
