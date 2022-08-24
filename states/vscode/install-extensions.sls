@@ -7,7 +7,7 @@ include:
 
 {% if user_config.vscode_extensions is defined and user_config.vscode_extensions %}
 
-{{ user }}-install_vscode_extensions:
+manage_file_{{ user }}-install_vscode_extensions.sh:
   file.managed:
     - name: /home/{{ user }}/.vscode/install_vscode_extensions.sh
     - user: {{ user }}
@@ -19,6 +19,12 @@ include:
     - require:
       - user: {{ user }}
 
+run_script_{{ user }}-install_vscode_extensions.sh:
+  cmd.run:
+    - name: /home/{{ user }}/.vscode/install_vscode_extensions.sh
+    - onchanges:
+      - file: {{ user }}-install_vscode_extensions.sh
+
 {% endif %}
 
 {#
@@ -27,7 +33,7 @@ include:
 get unique list of extensions from ~/.vscode/extensions
 ls -1 | grep -oP "[a-zA-Z]+\..*(?=-\d)" | sort -u
 
-#}
+
 
 {% if user_config.vscode_extensions is defined and user_config.vscode_extensions %}
 
@@ -45,4 +51,6 @@ ls -1 | grep -oP "[a-zA-Z]+\..*(?=-\d)" | sort -u
 
 {% endfor %}
 {% endif %}
+#}
+
 {% endfor %}

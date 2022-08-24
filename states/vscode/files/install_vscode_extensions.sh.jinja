@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 
 {% for extension in vscode_extensions %}
-code  --install-extension {{extension}}
-{% endfor %}
+code  --force --install-extension {{extension}}{% endfor %}
