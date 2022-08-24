@@ -12,12 +12,13 @@ include:
 {% set early_clone_repo = user_config.git_early_clone %}
 {% for repo_name,repo_config in early_clone_repo.items() %}
 
-
-{% for repo in repo_config %}
 repo_name-{{repo_name}}:
   cmd.run:
     - name: echo {{ repo_name }}
 {#
+
+{% for repo in repo_config %}
+
 {% if (repo.dir is defined and repo.dir) %}
 {% set repo_dir = repo.dir %}
 {% else %}
@@ -33,8 +34,9 @@ git_clone_{{ repo.url }}:
       - file: /home/{{ user }}/git
     - user: {{user}}
 
-#}
 {% endfor %}
+
+#}
 
 {% endfor %}
 
