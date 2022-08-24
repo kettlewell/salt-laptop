@@ -5,6 +5,21 @@ include:
 {% import_yaml 'data/users_data.yml' as users_data %}
 {% for user, user_config in users_data['users'].items() %}
 
+{% if user_config.vscode_extensions is defined and user_config.vscode_extensions %}
+
+{{ user }}-install_vscode_extensions:
+  file.managed:
+    - name: /home/{{ user }}/.vscode/install_vscode_extensions.sh
+    - user: {{ user }}
+    - mode: "0755"
+    - source: salt://vscode/files/install_vscode_extensions.sh.jinja
+    - template: jinja
+    - context:
+      vscode_extensions: {{ user_config["vscode_extensions"] }}
+    - require:
+      - user: {{ user }}
+
+{% endif %}
 
 {#
 

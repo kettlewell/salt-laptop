@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+{% for extension in vscode_extensions %}
+code  --install-extension {{extension}} > /dev/null
+{% endfor %}
