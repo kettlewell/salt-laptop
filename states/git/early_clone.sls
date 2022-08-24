@@ -14,6 +14,10 @@ include:
 
 
 {% for repo in repo_config %}
+repo_name-{{repo_name}}:
+  cmd.run:
+    - name: echo {{ repo_name }}
+{#
 {% if (repo.dir is defined and repo.dir) %}
 {% set repo_dir = repo.dir %}
 {% else %}
@@ -29,6 +33,7 @@ git_clone_{{ repo.url }}:
       - file: /home/{{ user }}/git
     - user: {{user}}
 
+#}
 {% endfor %}
 
 {% endfor %}
