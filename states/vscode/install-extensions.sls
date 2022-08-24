@@ -22,6 +22,7 @@ manage_file_{{ user }}-install_vscode_extensions.sh:
 run_script_{{ user }}-install_vscode_extensions.sh:
   cmd.run:
     - name: /home/{{ user }}/.vscode/install_vscode_extensions.sh
+    - user: {{ user }}
     - onchanges:
       - file: manage_file_{{ user }}-install_vscode_extensions.sh
 
