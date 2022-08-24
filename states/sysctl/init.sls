@@ -9,7 +9,6 @@
 {{ k }}:
   sysctl.present:
     - value: {{ v }}
-    - config: /etc/sysctl/salted_sysctl.conf
 
 {% endfor %}
 {% endif %}
