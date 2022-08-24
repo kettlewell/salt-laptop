@@ -20,6 +20,7 @@ optional / later:
 Things to Fix:
 * vscode install extensions always show a change, even when nothing has changed
 * gnome favorites icons
+* vscode extensions are slow to install... should create a touch file or other condition to check so it doesn't need to try to re-install the extensions all the time.
 
 
 TODO:
