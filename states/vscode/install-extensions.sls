@@ -5,7 +5,16 @@ include:
 {% import_yaml 'data/users_data.yml' as users_data %}
 {% for user, user_config in users_data['users'].items() %}
 
-{%   if user_config.vscode_extensions is defined and user_config.vscode_extensions %}
+
+{#
+
+
+get unique list of extensions from ~/.vscode/extensions
+ls -1 | grep -oP "[a-zA-Z]+\..*(?=-\d)" | sort -u
+
+#}
+
+{% if user_config.vscode_extensions is defined and user_config.vscode_extensions %}
 
 {% for extension in user_config.vscode_extensions %}
 
