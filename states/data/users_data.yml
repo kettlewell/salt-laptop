@@ -88,6 +88,13 @@ users:
     custom_tmux: True
     custom_xresources: True
     custom_xinitrc: True
+    git_early_clone:
+      snips:
+        url: admin01.kettlewell.fam:/data/git-bare/snips.git
+        dir: kettlewell-snips
+      dotfiles:
+        url: git@github.com:kettlewell/dotfiles.git
+        dir: kettlewell-dotfiles
     git_repos_https:
       - url: https://github.com/kettlewell/emacs.d.git
         dir: kettlewell-emacs.d
@@ -133,10 +140,6 @@ users:
       - url: https://github.com/jackscott/golang-formula.git
 
     git_repos_ssh:
-      - url: admin01.kettlewell.fam:/data/git-bare/snips.git
-        dir: kettlewell-snips
-      - url: git@github.com:kettlewell/dotfiles.git
-        dir: kettlewell-dotfiles
       - url: git@github.com:kettlewell/flowstate.git
         dir: kettlewell-flowstate
       - url: git@github.com:kettlewell/prototypical.git
