@@ -8,6 +8,7 @@ cupshelpers
 dasbus
 dbus-python
 distro
+flake8
 gpg
 idna
 immutables
