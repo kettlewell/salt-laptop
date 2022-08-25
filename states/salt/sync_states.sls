@@ -17,9 +17,6 @@ sync_all_modules:
     - onchanges:
       - git: sync_states
 
-refresh_all_grains:
-  saltutil.refresh_grains:
-    - refresh: True
 
 set_minion_config:
   file.managed:
@@ -27,4 +24,3 @@ set_minion_config:
     - source: salt://salt/config/etc/salt/minion.d/masterless.conf
     - changes:
       - saltutil: sync_all_modules
-      - saltutil: refresh_all_grains
