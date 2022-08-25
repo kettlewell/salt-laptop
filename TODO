@@ -1,28 +1,25 @@
 Things to add
-* bin/scripts
+* bin/scripts ( in progress - snips repo)
 
 
 optional / later:
 
+* s3 backups
 * flatpak
 * prometheus
 * databases
 * script to push keys onto yubi
 * bookmarks
-* s3 backups
 * virtualbox
 * pgdg
 * pgadmin4
 
 Things to Fix:
-* vscode install extensions always show a change, even when nothing has changed
-* gnome favorites icons
-* vscode extensions are slow to install... should create a touch file or other condition to check so it doesn't need to try to re-install the extensions all the time.
-
+* gnome launcher shows changes
+* performance issues... might just be too many git repos
 
 TODO:
-in users.init add a new state ( users.pull_dotfiles )
-and use the dotfiles in there for bashrc, aliases, functions, etc ... or just pull them all from dot files into here... actually, that might be the better way to keep them all in once place... but also makes it more tightly coupled to salt, and less indendent... so keep it in dotfiles, and pull it into salt via git and link files
+incorporate dotfiles from git repo
 
 Done-ish:
 * dotfiles
