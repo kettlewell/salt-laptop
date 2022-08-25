@@ -17,7 +17,7 @@ sync_all_modules:
     - onchanges:
       - git: sync_states
 
-sync_all_modules:
+refresh_all_grains:
   saltutil.refresh_grains:
     - refresh: True
 
