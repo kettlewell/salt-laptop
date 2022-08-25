@@ -14,6 +14,17 @@ sync_states:
 sync_all_modules:
   saltutil.sync_all:
     - refresh: True
-    - order: 1
     - onchanges:
       - git: sync_states
+
+sync_all_modules:
+  saltutil.refresh_grains:
+    - refresh: True
+
+set_minion_config:
+  file.managed:
+    - name: /etc/salt/minion.d/masterless.conf
+    - source: salt://salt/config/etc/salt/minion.d/masterless.conf
+    - changes:
+      - saltutil: sync_all_modules
+      - saltutil: refresh_all_grains
