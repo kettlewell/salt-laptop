@@ -2,6 +2,7 @@
 
 include:
   - users.create-users
+  - users.create-groups
   - users.ssh_keys
   - users.ssh_config
 
