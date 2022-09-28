@@ -59,6 +59,7 @@ system_packages:
       - msgpack
       - mtr
       - netcat
+      - okular
       - os-prober
       - osinfo-db
 #      - packer
