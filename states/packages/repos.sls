@@ -17,9 +17,13 @@ docker_repo:
   cmd.run:
     - name: |
         yum install -y yum-utils
-        yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo    
+        yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 
 
+enable_rocky_crb_repo:
+  cmd.run:
+    - name: |
+        dnf config-manager --set-enabled crb
 
 
 # PGADMIN4
