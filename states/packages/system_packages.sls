@@ -49,6 +49,7 @@ system_packages:
       - httpd
       - iftop
       - iotop
+      - libreoffice-core
       - llvm
       - lm_sensors
       - lpsolve
