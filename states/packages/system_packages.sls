@@ -28,6 +28,7 @@ system_packages:
       - efivar
       - emacs-nox
       - ethtool
+      - festival
 #      - ffmpeg
 #      - flake8
       - gcc
