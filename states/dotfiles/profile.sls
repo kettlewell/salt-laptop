@@ -19,3 +19,13 @@ include:
 
 
 {% endfor %}
+
+PATH_bash_profile:
+  file.managed:
+    - name: /etc/profile.d/PATH.sh
+    - source:
+        - salt://dotfiles/files/PATH_bash_profile.jinja
+    - template: jinja
+    - mode: 644
+    - user: root
+    - group: root
