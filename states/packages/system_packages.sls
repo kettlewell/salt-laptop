@@ -63,6 +63,10 @@ system_packages:
       - os-prober
       - osinfo-db
       - pam_yubico
+      - pcsc-lite
+      - pcsc-lite-ccid
+      - pcsc-lite-devel
+      - pcsc-lite-libs
       - pigz
       - pinentry
       - pinentry-tty
