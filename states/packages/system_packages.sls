@@ -79,6 +79,7 @@ system_packages:
       - socat
       - sqlite
       - strace
+      - swig
       - sysfsutils
       - tcpdump
       - tig

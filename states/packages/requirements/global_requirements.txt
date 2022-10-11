@@ -46,3 +46,4 @@ sos
 systemd-python
 urllib3
 virtualenv
+yubikey-manager
