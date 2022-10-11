@@ -7,7 +7,6 @@ system_packages:
       - bash-completion
       - bc
       - binutils
-#      - black
       - ca-certificates
       - code
       - colord
@@ -15,7 +14,6 @@ system_packages:
       - colord-gtk
       - colord-kde
       - colordiff
-#      - cool-retro-term
       - coreutils
       - cpio
       - curl
@@ -29,8 +27,6 @@ system_packages:
       - emacs-nox
       - ethtool
       - festival
-#      - ffmpeg
-#      - flake8
       - gcc
       - gcc-c++
       - gcc-gfortran
@@ -51,6 +47,8 @@ system_packages:
       - iftop
       - iotop
       - libreoffice-core
+      - libyubikey
+      - libyubikey-devel
       - llvm
       - lm_sensors
       - lpsolve
@@ -64,13 +62,13 @@ system_packages:
       - okular
       - os-prober
       - osinfo-db
-#      - packer
-#      - pgadmin4
+      - pam_yubico
       - pigz
       - pinentry
       - pinentry-tty
       - postgresql
       - procps-ng
+      - python3-yubico
       - rng-tools
       - rsync
       - snapd
@@ -87,16 +85,23 @@ system_packages:
       - whois
       - wireshark
       - wireshark
-#      - yubikey-manager
+      - ykclient
+      - ykpers
       - zip
-#      - zoom
 
+
+
+
+#      - black
+#      - cool-retro-term
+#      - ffmpeg
+#      - flake8
 #      - packer
-#      - yq
-#      - wpasupplicant
-#      - google-chrome-stable
-#      - ykls
-#      - xz-utils
+#      - pgadmin4
 #      - sqlite3
 #      - uuid-runtime
-
+#      - wpasupplicant
+#      - xz-utils
+#      - ykls
+#      - yq
+#      - zoom
