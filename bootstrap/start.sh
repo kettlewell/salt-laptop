@@ -5,11 +5,17 @@ set -x
 # started from:
 # https://eitr.tech/blog/2021/11/12/salt-masterless.html
 
-SALT_GIT_TAG="v3005rc2"
-EXPECTED_SALT_VERSION="salt 3005rc2"
+SALT_GIT_TAG="3005.1"
+EXPECTED_SALT_VERSION="salt 3005XXX"
 
 declare -a FORMULAS
 FORMULAS[0]="vscode-formula"
+
+# onedir repo updates
+sudo rpm --import https://repo.saltproject.io/salt/py3/redhat/9/x86_64/latest/SALTSTACK-GPG-KEY2.pub
+curl -fsSL https://repo.saltproject.io/salt/py3/redhat/9/x86_64/latest.repo | sudo tee /etc/yum.repos.d/salt.repo
+
+sudo yum clean expire-cache
 
 
 
@@ -24,20 +30,18 @@ else
 fi
 
 
-which salt > /dev/null 2>&1
-SALT_INSTALLED=$?
-if [[ ${SALT_INSTALLED} -eq 0 ]]; then
+#which salt > /dev/null 2>&1
+#SALT_INSTALLED=$?
+#if [[ ${SALT_INSTALLED} -eq 0 ]]; then
     SALT_VERSION=$(salt --version)
     if [[ "${SALT_VERSION}" != "${EXPECTED_SALT_VERSION}" ]]; then
 	printf "VERSIONS DONT MATCH... BOOTSTRAPPING SALT\n\n"
-	curl -L https://bootstrap.saltproject.io | sudo sh -s -- -x python3 \
-          -P \
-          git ${SALT_GIT_TAG}
+	curl -L https://bootstrap.saltproject.io | sudo sh -s -- onedir ${SALT_GIT_TAG}
 	systemctl stop salt-minion
     else
 	printf "VERSIONS MATCH - NOT BOOTSTRAPPING\n"
     fi
-fi
+#fi
 
 
 

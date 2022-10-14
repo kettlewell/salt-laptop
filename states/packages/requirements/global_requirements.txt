@@ -1,5 +1,4 @@
 black
-Brlapi
 certifi
 chardet
 charset-normalizer
@@ -36,7 +35,6 @@ PyYAML
 pyzmq
 requests
 rpm
-salt
 selinux
 sepolicy
 setools
