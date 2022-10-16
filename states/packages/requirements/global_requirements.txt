@@ -16,7 +16,6 @@ msgpack
 pexpect
 psutil
 ptyprocess
-pycairo
 pycryptodomex
 pyenchant
 PyGObject
