@@ -18,13 +18,10 @@ psutil
 ptyprocess
 pycryptodomex
 pyenchant
-PyGObject
-PySocks
 python-dateutil
 pyxdg
 PyYAML
 pyzmq
-requests
 rpm
 selinux
 sepolicy
