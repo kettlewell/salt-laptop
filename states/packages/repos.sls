@@ -26,6 +26,7 @@ enable_rocky_crb_repo:
         dnf config-manager --set-enabled crb
 
 
+
 # PGADMIN4
 
 # PGDG
