@@ -13,7 +13,6 @@ libcomps
 lxml
 MarkupSafe
 msgpack
-nftables
 pexpect
 psutil
 ptyprocess
