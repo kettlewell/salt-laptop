@@ -23,12 +23,15 @@ update_pip_setuptools:
     - require:
       - sls: packages.system_packages
     - upgrade: True
+    - user: root
 
 
 global_pip_install:
   pip.installed:
     - name: global pip installation
     - requirements: salt://packages/requirements/global_requirements.txt
+    - reload_modules: True
+    - user: root
     - require:
       - sls: packages.system_packages
       - pip: update_pip_setuptools
