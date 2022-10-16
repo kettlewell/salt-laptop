@@ -3,4 +3,8 @@ certifi
 flake8
 virtualenv
 wheel
-yubikey-manager
+
+# needs to be manually installed
+# because pip install inside of saltstack
+# is getting ridiculous
+#yubikey-manager
