@@ -22,7 +22,5 @@ python-dateutil
 pyxdg
 PyYAML
 pyzmq
-systemd-python
-urllib3
 virtualenv
 yubikey-manager
