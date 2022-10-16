@@ -18,7 +18,6 @@ psutil
 ptyprocess
 pycairo
 pycryptodomex
-pycups
 pycurl
 pyenchant
 PyGObject
