@@ -16,12 +16,21 @@ include:
 # global package installation
 # TODO: cleanup the requirements file... lots of non-global stuff there
 
+update_pip_setuptools:
+  pip.installed:
+    - name: setuptools
+    - require:
+      - sls: packages.system_packages
+    - upgrade: True
+
+
 global_pip_install:
   pip.installed:
     - name: global pip installation
     - requirements: salt://packages/requirements/global_requirements.txt
     - require:
       - sls: packages.system_packages
+      - pip: update_pip_setuptools
 
 
 {% for user, user_config in users.items() %}
