@@ -3,7 +3,6 @@ certifi
 chardet
 charset-normalizer
 contextvars
-cupshelpers
 dasbus
 dbus-python
 distro
@@ -38,7 +37,6 @@ selinux
 sepolicy
 setools
 setroubleshoot
-six
 sos
 systemd-python
 urllib3
