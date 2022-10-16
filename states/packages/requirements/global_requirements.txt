@@ -4,7 +4,6 @@ chardet
 charset-normalizer
 contextvars
 dasbus
-dbus-python
 distro
 flake8
 gpg
