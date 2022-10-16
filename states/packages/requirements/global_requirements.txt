@@ -6,7 +6,6 @@ contextvars
 dasbus
 distro
 flake8
-gpg
 idna
 immutables
 iotop
