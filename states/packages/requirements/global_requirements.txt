@@ -8,7 +8,6 @@ distro
 flake8
 idna
 immutables
-iotop
 Jinja2
 libcomps
 lxml
