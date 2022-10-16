@@ -37,7 +37,7 @@ update_pip_pip:
 
 update_pip_setuptools:
   pip.installed:
-    - name: setuptools >= 65.0
+    - name: setuptools
     - reload_modules: True
     - require:
       - pip: update_pip_pip
