@@ -2,7 +2,6 @@ black
 certifi
 chardet
 charset-normalizer
-chrome-gnome-shell
 contextvars
 cupshelpers
 dasbus
