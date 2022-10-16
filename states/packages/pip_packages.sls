@@ -18,7 +18,8 @@ include:
 
 update_pip_setuptools:
   pip.installed:
-    - name: setuptools
+    - name: setuptools >= 65.0
+    - reload_modules: True
     - require:
       - sls: packages.system_packages
     - upgrade: True
