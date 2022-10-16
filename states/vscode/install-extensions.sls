@@ -19,6 +19,9 @@ manage_file_{{ user }}-install_vscode_extensions.sh:
     - require:
       - user: {{ user }}
 
+{# TODO:  there should be a dependency on if vscode is actually installed
+          otherwise, the initial install of the extensions will fail if vscode is not installed
+#}
 run_script_{{ user }}-install_vscode_extensions.sh:
   cmd.run:
     - name: /home/{{ user }}/.vscode/install_vscode_extensions.sh
