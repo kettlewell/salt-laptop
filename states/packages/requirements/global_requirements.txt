@@ -18,9 +18,9 @@ psutil
 ptyprocess
 pycryptodomex
 pyenchant
-python-dateutil
 pyxdg
 PyYAML
 pyzmq
+setuptools
 virtualenv
 yubikey-manager
