@@ -15,6 +15,17 @@ include:
     - group: {{ user }}
     - mode: 700
     - makedirs: True
+
+
+/home/{{ user }}/.vscode:
+  file.directory:
+    - requires:
+      - sls: users.create-users
+    - user: {{ user }}
+    - group: {{ user }}
+    - mode: 700
+    - makedirs: True
+
 {% endfor %}
 
 
