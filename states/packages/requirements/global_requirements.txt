@@ -22,12 +22,6 @@ python-dateutil
 pyxdg
 PyYAML
 pyzmq
-rpm
-selinux
-sepolicy
-setools
-setroubleshoot
-sos
 systemd-python
 urllib3
 virtualenv
