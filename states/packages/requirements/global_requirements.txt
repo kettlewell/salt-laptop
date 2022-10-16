@@ -1,13 +1,7 @@
-#black
-#certifi
-#chardet
-#charset-normalizer
-#contextvars
-#dasbus
+black
+certifi
 #distro
-#flake8
-#idna
-#immutables
+flake8
 #Jinja2
 #libcomps
 #lxml
@@ -21,5 +15,5 @@
 #pyxdg
 #PyYAML
 #pyzmq
-#virtualenv
+virtualenv
 yubikey-manager
