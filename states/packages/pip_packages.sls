@@ -16,12 +16,31 @@ include:
 # global package installation
 # TODO: cleanup the requirements file... lots of non-global stuff there
 
+
+update_pip_cffi:
+  pip.installed:
+    - name: cffi
+    - reload_modules: True
+    - require:
+      - sls: packages.system_packages
+    - upgrade: True
+    - user: root
+
+update_pip_pip:
+  pip.installed:
+    - name: pip
+    - reload_modules: True
+    - require:
+      - pip: update_pip_cffi
+    - upgrade: True
+    - user: root
+
 update_pip_setuptools:
   pip.installed:
     - name: setuptools >= 65.0
     - reload_modules: True
     - require:
-      - sls: packages.system_packages
+      - pip: update_pip_pip
     - upgrade: True
     - user: root
 
