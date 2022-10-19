@@ -51,6 +51,7 @@ global_pip_install:
     - requirements: salt://packages/requirements/global_requirements.txt
     - reload_modules: True
     - user: root
+    - force_reinstall: True
     - require:
       - sls: packages.system_packages
       - pip: update_pip_setuptools
