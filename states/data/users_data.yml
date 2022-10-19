@@ -152,7 +152,7 @@ users:
       - google-chrome.desktop
       - slack_slack.desktop
       - spotify_spotify.desktop
-      - settings.desktop
+      - gnome-control-center.desktop
   jen:
     vscode_extensions:
       - eamodio.gitlens
