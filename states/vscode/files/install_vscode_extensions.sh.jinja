@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 {% for extension in vscode_extensions %}
-code  --force --install-extension {{extension}}{% endfor %}
+code --no-sandbox --user-data-dir /home/{{user}}/.vscode --force --install-extension {{extension}}{% endfor %}

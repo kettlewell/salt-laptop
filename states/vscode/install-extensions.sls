@@ -16,6 +16,7 @@ manage_file_{{ user }}-install_vscode_extensions.sh:
     - template: jinja
     - context:
       vscode_extensions: {{ user_config["vscode_extensions"] }}
+      user: {{ user }}
     - require:
       - user: {{ user }}
 
