@@ -7,4 +7,4 @@ wheel
 # needs to be manually installed
 # because pip install inside of saltstack
 # is getting ridiculous
-#yubikey-manager
+yubikey-manager
