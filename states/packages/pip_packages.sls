@@ -52,6 +52,8 @@ global_pip_install:
     - reload_modules: True
     - user: root
     - force_reinstall: True
+    - pip_bin: /usr/bin/pip3
+    - bin_env: /usr/bin/python3
     - require:
       - sls: packages.system_packages
       - pip: update_pip_setuptools
