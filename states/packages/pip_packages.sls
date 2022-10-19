@@ -21,6 +21,8 @@ update_pip_cffi:
   pip.installed:
     - name: cffi
     - reload_modules: True
+    - pip_bin: /usr/bin/pip3
+    - bin_env: /usr/bin/python3
     - require:
       - sls: packages.system_packages
     - upgrade: True
@@ -30,6 +32,8 @@ update_pip_pip:
   pip.installed:
     - name: pip
     - reload_modules: True
+    - pip_bin: /usr/bin/pip3
+    - bin_env: /usr/bin/python3
     - require:
       - pip: update_pip_cffi
     - upgrade: True
@@ -39,6 +43,8 @@ update_pip_setuptools:
   pip.installed:
     - name: setuptools
     - reload_modules: True
+    - pip_bin: /usr/bin/pip3
+    - bin_env: /usr/bin/python3
     - require:
       - pip: update_pip_pip
     - upgrade: True
