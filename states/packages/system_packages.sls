@@ -72,6 +72,7 @@ system_packages:
       - pinentry-tty
       - postgresql
       - procps-ng
+      - python3-pip
       - python3-yubico
       - rng-tools
       - rsync
